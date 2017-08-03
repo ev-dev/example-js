@@ -1,0 +1,87 @@
+body {
+  background-color: rgb(36, 40, 42);
+}
+
+.center {
+  text-align: center;
+}
+
+#title {
+  color: white;
+  font-size: 30px;
+  padding-top: 40px;
+  font-weight: bold;
+}
+
+#subtitle {
+  color: rgb(132, 155, 171);
+  font-size: 18px;
+  padding: 5px 5% 55px 5%;
+  margin: 0px;
+}
+
+#prompt-text {
+  color: rgb(92, 115, 121);
+  font-style: oblique;
+}
+
+#about {
+  color: rgb(92, 115, 121);
+}
+
+#footer-title {
+  color: #cdb0d0;
+}
+
+#footer-description {
+  color: rgb(162, 185, 191);
+  font-size: 12px;
+}
+
+#bottom-description {
+  color: rgb(112, 135, 141);
+  font-size: 12px;
+}
+
+#footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+#footer-main {
+  border-top: solid 2px black;
+  background-color: #33373a;
+  padding: 0.5% 4% 1% 4%;
+}
+
+#text-above-footer {
+  padding: 0.3% 4%;
+}
+
+.main-search {
+  width: 300px;
+  margin-left: -20px;
+}
+
+.search-btn {
+  margin-left: -20px;
+}
+
+.white-text {
+  color: white;
+}
+
+.result-header {
+  padding-top: 80px;
+}
+
+.result-snippet {
+  border: 1px solid white;
+  border-radius: 1%;
+  height: 80%;
+}
+
+.source-title {
+  font-size: 18px;
+}

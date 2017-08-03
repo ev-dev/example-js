@@ -15,8 +15,9 @@ module.exports = app
     extended: true
   }))
   .use(bodyParser.json())
-  .use(express.static(resolve(__dirname, '..', 'public'))) // Serve static files from ../public
+  .use(express.static(resolve(__dirname, 'public'))) // Serve static files from ../public
   // .use('/api', require('./server/api')) // Serve our api
+  .use('/bulma', express.static(resolve(__dirname, 'node_modules', 'bulma', 'css')))
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, 'public', 'index.html'))) // Send index.html for any other requests.
 
 if (module === require.main) {
