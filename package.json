@@ -1,0 +1,21 @@
+{
+  "name": "example-js",
+  "version": "1.0.0",
+  "description": "Documentation and Learing Assistant",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack -w && nodemon server/start.js --watch server --watch index.js --watch package.json",
+    "start": "node server/start.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Evan Reed <evan.reed1100@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ev-dev/example-js/issues"
+  },
+  "homepage": "https://github.com/ev-dev/example-js#readme"
+}
