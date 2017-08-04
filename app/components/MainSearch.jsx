@@ -10,6 +10,7 @@ class MainSearch extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.authStackOverflow = this.authStackOverflow.bind(this)
   }
 
   handleChange(evt) {
@@ -22,8 +23,22 @@ class MainSearch extends Component {
     console.log('query to submit: ', query)
     
     // THUNK HERE
-
+    this.authStackOverflow()
     this.props.history.push(`/results/${query}`)
+  }
+
+  authStackOverflow() {
+    SE.authenticate({
+      success(data) {
+        console.log(
+          `User Authorized with account id:  ${data.networkUsers[0].account_id}\n Got access token:  ${data.accessToken}`
+        );
+      },
+      error(data) {
+        console.log(`An error occurred:  ${data.errorName}  ${data.errorMessage}\n`);
+      },
+      networkUsers: true
+    });
   }
 
   render() {

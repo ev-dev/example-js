@@ -73,15 +73,27 @@ body {
 }
 
 .result-header {
-  padding-top: 80px;
+  padding-top: 40px;
 }
 
 .result-snippet {
   border: 1px solid white;
   border-radius: 1%;
-  height: 80%;
+  height: 150px;
 }
 
 .source-title {
   font-size: 18px;
+}
+
+.code-snippet {
+  font-size: 16px;
+}
+
+.ace-text-area {
+  font-size: 18px;
+}
+
+.result-title {
+  margin-bottom: 10px;
 }

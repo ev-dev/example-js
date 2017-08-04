@@ -18,11 +18,13 @@ module.exports = app
   .use(express.static(resolve(__dirname, 'public'))) // Serve static files from ../public
   // .use('/api', require('./server/api')) // Serve our api
   .use('/bulma', express.static(resolve(__dirname, 'node_modules', 'bulma', 'css')))
+  .use('/code-highlight', express.static(resolve(__dirname, 'node_modules', 'highlight.js', 'styles')))
+  .use('/codemirror', express.static(resolve(__dirname, 'node_modules', 'codemirror', 'lib')))
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, 'public', 'index.html'))) // Send index.html for any other requests.
 
 if (module === require.main) {
   const server = app.listen(
-    process.env.PORT || 3000,
+    process.env.PORT || 80,
     () => {
       console.log('--- Started HTTP Server for ExampleJS ---')
       console.log(`Listening on ${JSON.stringify(server.address())}`)
