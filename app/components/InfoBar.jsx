@@ -39,7 +39,11 @@ class InfoBar extends Component {
           }
         </div>
         
-        <h3 className="info-title">Link to Source</h3>
+        <h3 className="link-to-source-title">Link to Source</h3>
+        <a className="link-to-source"
+          href="https://stackoverflow.com/questions/4926359/javascript-fibonacci-using-closures">
+          <em>StackOverflow</em>
+        </a>
       </div>
     )
   }

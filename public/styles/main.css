@@ -142,6 +142,43 @@ body {
 }
 
 .info-title {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(112, 135, 141);
+}
+
+.tags-title {
+  margin-left: -30px;
+  margin-top: 10px;
+}
+
+.all-tags {
+  margin-top: 8px;
+  margin-left: 55px;
+}
+
+.vote-title {
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+.vote-btn {
+  margin-top: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.vote-buttons {
+  margin-left: -30px;
+}
+
+.link-to-source {
+  margin-left: 80px;
+}
+
+.link-to-source-title {
+  margin-top: 50px;
   font-weight: bold;
   text-align: center;
   color: rgb(112, 135, 141);

@@ -22,6 +22,9 @@ module.exports = app
   .use('/bulma', express.static(
     resolve(__dirname, 'node_modules', 'bulma', 'css')))
   
+  .use('/font-awesome', express.static(
+    resolve(__dirname, 'node_modules', 'font-awesome', 'css')))
+  
   .use('/code-highlight', express.static(
     resolve(__dirname, 'node_modules', 'highlight.js', 'styles')))
   
