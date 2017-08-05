@@ -5,7 +5,7 @@ const sofAPI = new stackexchange(sofOptions)
 const sofFilter = {
   key: 'mky1gCVsFgGKOX7dYZTJPQ((',
   pagesize: 50,
-  tagged: `javascript`,
+  tagged: ['javascript', 'reduce'],
   sort: 'activity',
   order: 'asc'
 }

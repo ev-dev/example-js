@@ -7,6 +7,7 @@ import AceTextEditor from './Editor/AceTextEditor'
 import CodemirrorEditor from './Editor/CodemirrorEditor'
 // import QuillEditor from './Editor/QuillEditor'
 import Sidebar from './Sidebar'
+import InfoBar from './InfoBar'
 
 class ResultPage extends Component {
   constructor(props) {
@@ -33,24 +34,16 @@ class ResultPage extends Component {
           </div>
 
           <div className="column is-two-quarters center result-header">
-            <h1 className="result-title">Results for <em>{query}</em></h1>
+            <h1 className="result-title">
+              Results for <em>{query}</em>
+            </h1>
 
             <AceTextEditor query={query} />
-
-            {/*editMode ? <CodemirrorEditor /> : <ResultsBox />*/}
-
-            {/*
-              <button 
-                className="button is-warning"
-                onClick={() => this.toggleEditMode()}
-              >
-                {editMode ? 'Back to Results' : 'Edit Code'}
-              </button>
-            */}
-
           </div>
 
-          <div className="column is-one-quarter"></div>
+          <div className="column is-one-quarter">
+            <InfoBar {...this.props} />
+          </div>
         </div>
       </div>      
     )
