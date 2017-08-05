@@ -1,0 +1,185 @@
+body {
+  background-color: rgb(36, 40, 42);
+}
+
+.center {
+  text-align: center;
+}
+
+#title {
+  color: white;
+  font-size: 30px;
+  padding-top: 40px;
+  font-weight: bold;
+}
+
+#subtitle {
+  color: rgb(132, 155, 171);
+  font-size: 18px;
+  padding: 5px 5% 55px 5%;
+  margin: 0px;
+}
+
+#prompt-text {
+  color: rgb(92, 115, 121);
+  font-style: oblique;
+}
+
+#about {
+  color: rgb(92, 115, 121);
+}
+
+#footer-title {
+  color: #cdb0d0;
+}
+
+#footer-description {
+  color: rgb(162, 185, 191);
+  font-size: 12px;
+}
+
+#bottom-description {
+  color: rgb(112, 135, 141);
+  font-size: 12px;
+}
+
+#footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+#footer-main {
+  border-top: solid 2px black;
+  background-color: #33373a;
+  padding: 0.5% 4% 1% 4%;
+}
+
+#text-above-footer {
+  padding: 0.3% 4%;
+}
+
+.main-search {
+  width: 300px;
+  margin-left: -20px;
+}
+
+.search-btn {
+  margin-left: -20px;
+}
+
+.white-text {
+  color: white;
+}
+
+.result-header {
+  padding-top: 40px;
+}
+
+.result-snippet {
+  border: 1px solid white;
+  border-radius: 1%;
+  height: 150px;
+}
+
+.source-title {
+  font-size: 18px;
+}
+
+.code-snippet {
+  font-size: 16px;
+}
+
+.ace-text-area {
+  font-size: 18px;
+}
+
+.result-title {
+  margin-bottom: 10px;
+}
+
+.sidebar-btn {
+  width: 175px;
+  height: 60px;
+  margin-left: 30px;
+  margin-top: 5px;
+  text-align: left;
+  font-size: 14px;
+  color: rgb(52, 75, 81);
+}
+
+.side-num {
+  font-weight: bold;
+  color: rgb(22, 22, 22);
+  font-size: 20px;
+  margin-left: -10px;
+  margin-right: 10px;
+  /* padding-left: 20px; */
+}
+
+.side-src {
+  font-style: italic
+}
+
+.sidebar-whole {
+  margin-top: 75px;
+}
+
+.side-title {
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 1px;
+  padding-right: 5px;
+  text-align: center;
+  background-color: rgb(56, 60, 62);
+  color: white;
+}
+
+.info-main {
+  margin-top: 50px;
+  margin-left: -20px;
+}
+
+.info-title {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(112, 135, 141);
+}
+
+.tags-title {
+  margin-left: -30px;
+  margin-top: 10px;
+}
+
+.all-tags {
+  margin-top: 8px;
+  margin-left: 55px;
+}
+
+.vote-title {
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+.vote-btn {
+  margin-top: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.vote-buttons {
+  margin-left: -30px;
+}
+
+.link-to-source {
+  margin-left: 80px;
+}
+
+.link-to-source-title {
+  margin-top: 50px;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(112, 135, 141);
+}
