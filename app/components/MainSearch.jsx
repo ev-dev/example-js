@@ -22,7 +22,7 @@ class MainSearch extends Component {
     console.log('query to submit: ', query)
     
     // THUNK HERE
-    // this.authStackOverflow()
+  
     this.props.history.push(`/results/${query}`)
   }
 
