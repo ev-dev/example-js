@@ -6,7 +6,7 @@ import ResultsBox from './ResultsBox'
 import AceTextEditor from './Editor/AceTextEditor'
 import CodemirrorEditor from './Editor/CodemirrorEditor'
 // import QuillEditor from './Editor/QuillEditor'
-
+import Sidebar from './Sidebar'
 
 class ResultPage extends Component {
   constructor(props) {
@@ -28,9 +28,11 @@ class ResultPage extends Component {
     return (
       <div className="white-text">
         <div className="columns">
-          <div className="column is-one-quarter"></div>
+          <div className="column">
+            <Sidebar />
+          </div>
 
-          <div className="column center result-header">
+          <div className="column is-three-quarters center result-header">
             <h1 className="result-title">Results for <em>{query}</em></h1>
 
             <AceTextEditor query={query} />
@@ -48,7 +50,7 @@ class ResultPage extends Component {
 
           </div>
 
-          <div className="column is-one-quarter"></div>
+          <div className="column"></div>
         </div>
       </div>      
     )

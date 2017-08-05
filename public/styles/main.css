@@ -97,3 +97,23 @@ body {
 .result-title {
   margin-bottom: 10px;
 }
+
+.sidebar-btn {
+  width: 100px;
+  height: 80px;
+  margin-left: 30px;
+  margin-top: 5px;
+  font-size: 12px;
+  color: rgb(52, 75, 81);
+}
+
+.side-num {
+  font-weight: bold;
+  color: rgb(22,22,22);
+  font-size: 14px;
+  padding-left: 20px;
+}
+
+.side-src {
+  font-style: italic
+}
