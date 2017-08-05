@@ -99,21 +99,39 @@ body {
 }
 
 .sidebar-btn {
-  width: 100px;
-  height: 80px;
+  width: 175px;
+  height: 60px;
   margin-left: 30px;
   margin-top: 5px;
-  font-size: 12px;
+  text-align: left;
+  font-size: 14px;
   color: rgb(52, 75, 81);
 }
 
 .side-num {
   font-weight: bold;
   color: rgb(22,22,22);
-  font-size: 14px;
-  padding-left: 20px;
+  font-size: 20px;
+  margin-left: -10px;
+  margin-right: 10px;
+  /* padding-left: 20px; */
 }
 
 .side-src {
   font-style: italic
+}
+
+.sidebar-whole {
+  margin-top: 75px;
+}
+
+.side-title {
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 1px;
+  padding-right: 5px;
+  text-align: center;
+  background-color: rgb(56, 60, 62);
+  color: white;
 }

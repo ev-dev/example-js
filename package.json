@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "build-watch": "webpack -w",
+    "build-dev": "webpack -w",
     "dev": "webpack -w && nodemon index.js --watch server --watch package.json",
     "start": "node index.js",
     "start-dev": "nodemon index.js",
+    "dev-run": "npm run start-dev & npm run build-dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

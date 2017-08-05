@@ -10,7 +10,6 @@ class MainSearch extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.authStackOverflow = this.authStackOverflow.bind(this)
   }
 
   handleChange(evt) {

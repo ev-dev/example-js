@@ -28,11 +28,11 @@ class ResultPage extends Component {
     return (
       <div className="white-text">
         <div className="columns">
-          <div className="column">
+          <div className="column is-one-quarter">
             <Sidebar />
           </div>
 
-          <div className="column is-three-quarters center result-header">
+          <div className="column is-two-quarters center result-header">
             <h1 className="result-title">Results for <em>{query}</em></h1>
 
             <AceTextEditor query={query} />
@@ -50,7 +50,7 @@ class ResultPage extends Component {
 
           </div>
 
-          <div className="column"></div>
+          <div className="column is-one-quarter"></div>
         </div>
       </div>      
     )
