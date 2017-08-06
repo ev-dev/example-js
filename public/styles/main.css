@@ -68,12 +68,22 @@ body {
   margin-left: -20px;
 }
 
+.result-search {
+  margin-left: 28%;
+  margin-bottom: 25px;
+}
+
 .white-text {
   color: white;
 }
 
-.result-header {
-  padding-top: 40px;
+.main-container {
+  padding-top: 25px;
+  width: 80%;
+}
+
+.righthand-spacer {
+  width: 50px;
 }
 
 .result-snippet {
@@ -91,11 +101,16 @@ body {
 }
 
 .ace-text-area {
-  font-size: 18px;
+  width: 100%;
 }
+
 
 .result-title {
   margin-bottom: 10px;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .sidebar-btn {
@@ -108,6 +123,27 @@ body {
   color: rgb(52, 75, 81);
 }
 
+sidebar-toggle-title {
+  color: whitesmoke;
+  padding-bottom: 15px;
+  padding-left: 30px;
+}
+
+.sidebar-load-more {
+  width: 140px;
+  height: 45px;
+  margin-left: 45px;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 14px;
+  color: rgb(52, 75, 81);
+}
+
+.sidebar-load-more {
+  font-size: 13px;
+  font-style: italic;
+}
+
 .side-num {
   font-weight: bold;
   color: rgb(22, 22, 22);
@@ -118,11 +154,13 @@ body {
 }
 
 .side-src {
-  font-style: italic
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(2, 15, 21);
 }
 
 .sidebar-whole {
-  margin-top: 75px;
+  margin-top: 55px;
 }
 
 .side-title {
@@ -137,7 +175,7 @@ body {
 }
 
 .info-main {
-  margin-top: 50px;
+  margin-top: 120px;
   margin-left: -20px;
 }
 
@@ -149,7 +187,6 @@ body {
 }
 
 .tags-title {
-  margin-left: -30px;
   margin-top: 10px;
 }
 
@@ -182,4 +219,67 @@ body {
   font-weight: bold;
   text-align: center;
   color: rgb(112, 135, 141);
+}
+
+.result-link-container {
+  border-radius: 2%;
+  margin-bottom: 10px;
+  margin-left: 40px;
+  padding-left: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 155px;
+}
+
+.result-switch-link {
+  padding: 5px;
+  margin-top: 50px;
+  margin-bottom: 55px;
+  color: rgba(212, 235, 241, 0.9);
+}
+
+single-link-container {
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 2%;
+  margin-left: 20px;
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+.mdn-results {
+  background-color: rgba(9, 78, 188, 0.5);
+  border: 1px solid rgba(9, 58, 138, 1);
+}
+
+.sof-results {
+  background-color: rgba(215, 3, 46, 0.5);
+  border: 1px solid rgba(185, 3, 26, 0.1);
+}
+
+.w3c-results {
+  background-color: rgba(40, 159, 128, 0.5);
+  border: 1px solid rgba(4, 109, 78, 0.1);
+}
+
+.result-num {
+  color: black;
+  font-weight: bold;
+  font-size: 17px;
+  margin-right: -15px;
+  margin-left: 5px;
+  padding-left: 10px;
+}
+
+.loading-title {
+  font-size: 20px;
+}
+
+.spinner {
+  width: 700px;
+  height: 500px;
+}
+
+.voting-tags-container {
+  width: 700px;
 }

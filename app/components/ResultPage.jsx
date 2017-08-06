@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import AceTextEditor from './Editor/AceTextEditor'
 import CodemirrorEditor from './Editor/CodemirrorEditor'
 
-import Sidebar from './Sidebar'
+import Search from './Search'
+import SourceBar from './SourceBar'
 import InfoBar from './InfoBar'
 import Voting from './Voting'
 import Tags from './Tags'
@@ -24,35 +25,63 @@ class ResultPage extends Component {
   }
 
   render() {
-    const query = this.props.match.params.query
     const editMode = this.state.editMode
+    
+    console.log('resultpage props -- look for match params\n', this.props)
+
+    const { query, src, id } = this.props.match.params
+    const { mdn } = this.props
 
     return (
       <div className="white-text">
         <div className="columns">
+          <div className="column is-one-quarter sidebar-containter">
+            <SourceBar query={query} />
+          </div>
+
+          <div className="column center main-container">
+            <div className="result-search">
+              <Search />
+            </div>
+
+            {mdn.isLoading
+              ? ( <div>
+                    <h1 className="result-title"><em>Loading Results...</em></h1>
+                    <div className="button is-large is-dark is-loading spinner"></div>
+                  </div> )
+
+              : ( <div>
+                    <h1 className="result-title">Results for "<em>{query}</em>"</h1>
+                    <AceTextEditor query={query} src={src} id={id} />
+                    
+                    <div className="columns voting-tags-container">
+                      <div className="column is-one-half">
+                        <Voting />
+                      </div>
+                      <div className="column is-one-half">
+                        <Tags />
+                      </div>
+                    </div>
+                  </div> )
+            }
+          </div>
+
+          <div className="column righthand-spacer"></div>
+          {/*
           <div className="column is-one-quarter">
-            <Sidebar query={query} />
+            <InfoBar query={query} src={src} id={id} />
           </div>
+          */}
 
-          <div className="column is-two-quarters center result-header">
-            <h1 className="result-title">
-              Results for "<em>{query}</em>"
-            </h1>
-
-            <AceTextEditor query={query} />
-            
-            <Voting />
-            
-            <Tags />
-          </div>
-
-          <div className="column is-one-quarter">
-            <InfoBar {...this.props} />
-          </div>
         </div>
       </div>      
     )
   }
 }
 
-export default ResultPage
+const mapState = (state, componentProps) => ({
+  mdn: state.mdn
+})
+
+export default connect(mapState)(ResultPage)
+

@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
+
+import { fetchResultsMDN } from '../reducers/mdn'
 
 class MainSearch extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
-      queryInputText: ''
+      queryInputText: '',
+      isHomepage: true
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -18,12 +22,17 @@ class MainSearch extends Component {
   }
 
   handleSubmit() {
-    const query = this.state.queryInputText
-    console.log('query to submit: ', query)
-    
-    // THUNK HERE
-  
-    this.props.history.push(`/results/${query}`)
+    const query = this.state.queryInputText    
+    this.props.fetchResultsMDN(query)  // THUNK
+
+    const uri = this.props.location.pathname
+    this.setState({ isHomepage: uri === '/' })
+
+    this.props.history.push(
+      this.state.isHomepage
+        ? `/results/${query}/mdn/1`
+        : `/results/${query}/${src}/${id}`
+    )
   }
 
   render() {
@@ -50,4 +59,10 @@ class MainSearch extends Component {
   }
 }
 
-export default MainSearch
+const mapState = (state, componentProps) => ({
+  resultsMDN: state.mdn.results
+})
+
+const mapDispatch = { fetchResultsMDN }
+
+export default withRouter(connect(mapState, mapDispatch)(MainSearch))
