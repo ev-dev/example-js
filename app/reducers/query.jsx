@@ -1,7 +1,5 @@
-import axios from 'axios'
-import stackexchange from 'stackexchange'
-
 /* --------- ACTIONS TYPES & CREATORS --------- */
+
 const NEW_QUERY = 'NEW_QUERY'
 const newQuery = query => ({
   type: NEW_QUERY,
@@ -15,8 +13,6 @@ const getLastFiveQueries = queries => ({
 })
 
 
-
-
 /* --------- REDUCER --------- */
 const initialState = { queries: [] }
 
@@ -27,7 +23,10 @@ const reducer = (state = initialState, action) => {
     case NEW_QUERY:
       newState.queries = [...newState.queries, action.query]
       break
+    default:
+      return state
   }
+  return newState
 }
 
 export default reducer

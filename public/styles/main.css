@@ -61,7 +61,7 @@ body {
 
 .main-search {
   width: 300px;
-  margin-left: -20px; 
+  margin-left: -20px;
 }
 
 .search-btn {
@@ -117,7 +117,7 @@ sidebar-toggle-title {
   color: whitesmoke;
   padding-bottom: 15px;
   padding-left: 30px;
-} 
+}
 
 .sidebar-load-more {
   width: 140px;
@@ -139,7 +139,8 @@ sidebar-toggle-title {
 }
 
 .side-src {
-  font-style: italic
+  font-weight: bold;
+  color: rgb(2, 15, 21);
 }
 
 .sidebar-whole {
@@ -203,4 +204,25 @@ sidebar-toggle-title {
   font-weight: bold;
   text-align: center;
   color: rgb(112, 135, 141);
+}
+
+.result-link-container {
+  border: 0.1px solid rgba(9, 58, 138, 0.1);
+  border-radius: 2%;
+  margin-left: 40px;
+  padding-left: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 155px;
+  background-color: rgba(9, 78, 188, 0.5);
+}
+
+.result-switch-link {
+  text-align: center;
+  color: rgba(212, 235, 241, 0.9);
+  border: 1px solid rgba(9, 18, 98, 0.9);
+  border-radius: 2%;
+  padding: 5px;
+  margin-top: 20px;
+  margin-bottom: 4s 5px;
 }

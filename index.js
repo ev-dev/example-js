@@ -30,7 +30,7 @@ module.exports = app
   
   .use('/codemirror', express.static(
     resolve(__dirname, 'node_modules', 'codemirror', 'lib')))
-  
+
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, 'public', 'index.html')))
 
 if (module === require.main) {

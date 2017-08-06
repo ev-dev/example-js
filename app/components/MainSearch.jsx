@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { fetchResultsMDN } from '../reducers/mdn'
 
 class MainSearch extends Component {
   constructor(props) {
@@ -20,12 +23,13 @@ class MainSearch extends Component {
     const query = this.state.queryInputText
     console.log('query to submit: ', query)
     
-    // THUNK HERE
-  
+    this.props.fetchResultsMDN(query)  // THUNK
+
     this.props.history.push(`/results/${query}`)
   }
 
   render() {
+    
     return (
       <div className="field has-addons">
         <div className="control">
@@ -49,4 +53,10 @@ class MainSearch extends Component {
   }
 }
 
-export default MainSearch
+const mapState = (state, componentProps) => ({
+  resultsMDN: state.mdn.results
+})
+
+const mapDispatch = { fetchResultsMDN }
+
+export default connect(mapState, mapDispatch)(MainSearch)

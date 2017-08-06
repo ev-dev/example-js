@@ -6,11 +6,12 @@ import AceTextEditor from './Editor/AceTextEditor'
 import CodemirrorEditor from './Editor/CodemirrorEditor'
 
 import MainSearch from './MainSearch'
-import Sidebar from './Sidebar'
+import SourceBar from './SourceBar'
 import InfoBar from './InfoBar'
 import Voting from './Voting'
 import Tags from './Tags'
 
+import Sidebar from './Sidebar'
 
 class ResultPage extends Component {
   constructor(props) {
@@ -29,11 +30,15 @@ class ResultPage extends Component {
     const query = this.props.match.params.query
     const editMode = this.state.editMode
 
+    const resultsMDN = this.props.resultsMDN
+    console.log('MDN Results:  ', resultsMDN) 
+    // console.log('results props:  ', this.props)
+
     return (
       <div className="white-text">
         <div className="columns">
           <div className="column is-one-quarter sidebar-containter">
-            <Sidebar query={query} />
+            <SourceBar query={query} />
           </div>
 
           <div className="column is-two-quarters center result-header">
@@ -62,4 +67,9 @@ class ResultPage extends Component {
   }
 }
 
-export default ResultPage
+const mapState = (state, componentProps) => ({
+  resultsMDN: state.mdn.results
+})
+
+export default connect(mapState)(ResultPage)
+
