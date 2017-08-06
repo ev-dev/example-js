@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Tags = props => (
-  <div className="has-text-centered">
+  <span className="has-text-centered">
     <h3 className="tags-title">Tags</h3>
     <div className="tags all-tags">
       <span className="tag">JavaScript</span>
@@ -10,7 +10,7 @@ const Tags = props => (
       <span className="tag">Functions</span>
       <span className="tag">Beginner</span>
     </div>
-  </div>
+  </span>
 )
 
 export default Tags

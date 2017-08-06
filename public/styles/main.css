@@ -69,7 +69,7 @@ body {
 }
 
 .result-search {
-  margin-left: 100px;
+  margin-left: 28%;
   margin-bottom: 25px;
 }
 
@@ -77,8 +77,13 @@ body {
   color: white;
 }
 
-.result-header {
+.main-container {
   padding-top: 25px;
+  width: 80%;
+}
+
+.righthand-spacer {
+  width: 50px;
 }
 
 .result-snippet {
@@ -96,8 +101,9 @@ body {
 }
 
 .ace-text-area {
-  font-size: 13px;
+  width: 100%;
 }
+
 
 .result-title {
   margin-bottom: 10px;
@@ -154,7 +160,7 @@ sidebar-toggle-title {
 }
 
 .sidebar-whole {
-  margin-top: 85px;
+  margin-top: 55px;
 }
 
 .side-title {
@@ -181,7 +187,6 @@ sidebar-toggle-title {
 }
 
 .tags-title {
-  margin-left: -30px;
   margin-top: 10px;
 }
 
@@ -275,3 +280,6 @@ single-link-container {
   height: 500px;
 }
 
+.voting-tags-container {
+  width: 700px;
+}

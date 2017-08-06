@@ -39,7 +39,7 @@ class ResultPage extends Component {
             <SourceBar query={query} />
           </div>
 
-          <div className="column is-two-quarters center result-header">
+          <div className="column center main-container">
             <div className="result-search">
               <Search />
             </div>
@@ -53,15 +53,26 @@ class ResultPage extends Component {
               : ( <div>
                     <h1 className="result-title">Results for "<em>{query}</em>"</h1>
                     <AceTextEditor query={query} src={src} id={id} />
-                    <Voting />  
-                    <Tags />
+                    
+                    <div className="columns voting-tags-container">
+                      <div className="column is-one-half">
+                        <Voting />
+                      </div>
+                      <div className="column is-one-half">
+                        <Tags />
+                      </div>
+                    </div>
                   </div> )
             }
           </div>
 
+          <div className="column righthand-spacer"></div>
+          {/*
           <div className="column is-one-quarter">
             <InfoBar query={query} src={src} id={id} />
           </div>
+          */}
+
         </div>
       </div>      
     )

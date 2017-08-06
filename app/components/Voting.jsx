@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Voting = props => (
-  <div>
+  <span>
     <div className="vote-title">
       <span>Vote for this snippet!</span>
     </div>
@@ -17,7 +17,7 @@ const Voting = props => (
         +1
       </div>
     </div>
-  </div>
+  </span>
 )
 
 export default Voting

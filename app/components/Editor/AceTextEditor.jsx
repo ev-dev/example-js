@@ -33,14 +33,16 @@ class AceTextEditor extends Component {
     return (
       <AceEditor
         className="ace-text-area"
+        value={currentSnippet}
+        fontSize={15}
+        width={700}
         mode="javascript"
         theme="twilight"
         onChange={this.handleChange}
         name="MainEditor"
-        fontSize={16}
-        value={currentSnippet}
         editorProps={{
-          $blockScrolling: true
+          $blockScrolling: true,
+          wrap: true
         }}
       />
     )

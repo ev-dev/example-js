@@ -51,11 +51,10 @@ class SourceBar extends Component {
             }
           </div>
 
-
           <div>
             <div className="button is-danger sidebar-btn"
               onClick={() => this.toggleAcitveSource(1)}>
-                <span className="side-src">StackOverflow</span>
+              <span className="side-src">StackOverflow</span>
             </div>
 
             {activeSource[1] &&
@@ -64,15 +63,14 @@ class SourceBar extends Component {
                   <div key={i + 1} className="single-link-container">
                     <Link to={`/results/${query}/sof/${i + 1}`}
                       className="result-switch-link">
-                        <em>Example</em>
-                        <p className="result-num">#{i + 1}</p>
+                      <em>Example</em>
+                      <span className="result-num">#{i + 1}</span>
                     </Link>
                   </div>
                 ))}
               </div>
             }
           </div>
-
 
           <div>
             <div className="button is-primary sidebar-btn"
