@@ -25,11 +25,11 @@ class MainSearch extends Component {
     
     this.props.fetchResultsMDN(query)  // THUNK
 
-    this.props.history.push(`/results/${query}`)
+    this.props.history.push(`/results/${query}/mdn/1`)
   }
 
   render() {
-    
+
     return (
       <div className="field has-addons">
         <div className="control">

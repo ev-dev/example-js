@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import brace from 'brace'
 import AceEditor from 'react-ace'
 
@@ -29,9 +30,29 @@ class AceTextEditor extends Component {
     // console.log('change', val)
   }
 
+
+
   render() {
     console.log('ace props', this.props)
     
+    const { src, id } = this.props
+
+    const resultsMDN = this.props.resultsMDN
+
+    const setCurrentSnippet = (source, currID) => {
+      if (source === 'mdn') {
+        return resultsMDN[currID - 1]
+      } else if (source === 'sof') {
+
+      } else if (source === 'w3c') {
+
+      } else {
+        throw new Error('Unrecognized route...')
+      }
+    }
+
+    const currentSnippet = setCurrentSnippet(src, id)
+
     return (
       <AceEditor
         className="ace-text-area"
@@ -40,7 +61,7 @@ class AceTextEditor extends Component {
         onChange={this.handleChange}
         name="MainEditor"
         fontSize={18}
-        value={snippets.fib2}
+        value={currentSnippet}
         editorProps={{
           $blockScrolling: true
         }}
@@ -49,4 +70,8 @@ class AceTextEditor extends Component {
   }
 }
 
-export default AceTextEditor
+const mapState = (state, componentProps) => ({
+  resultsMDN: state.mdn.results
+})
+
+export default connect(mapState)(AceTextEditor)

@@ -9,8 +9,8 @@ export default () => (
   <Switch>
     <Route exact path="/" component={Home} />
 
-    <Route path="/results/:query" component={ResultPage} />
-
+    <Route path="/results/:query/:src/:id" component={ResultPage} />
+    
     <Route component={NotFound} />
   </Switch>
 )

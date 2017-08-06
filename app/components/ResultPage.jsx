@@ -27,12 +27,12 @@ class ResultPage extends Component {
   }
 
   render() {
-    const query = this.props.match.params.query
     const editMode = this.state.editMode
+    
+    console.log('resultpage props -- look for match params\n', this.props)
 
-    const resultsMDN = this.props.resultsMDN
-    console.log('MDN Results:  ', resultsMDN) 
-    // console.log('results props:  ', this.props)
+    const { query, src, id } = this.props.match.params
+    const { resultsMDN } = this.props
 
     return (
       <div className="white-text">
@@ -51,15 +51,15 @@ class ResultPage extends Component {
             </h1>
 
 
-            <AceTextEditor query={query} />
-            
+            <AceTextEditor query={query} src={src} id={id} />
+
             <Voting />
             
             <Tags />
           </div>
 
           <div className="column is-one-quarter">
-            <InfoBar {...this.props} />
+            <InfoBar query={query} src={src} id={id} />
           </div>
         </div>
       </div>      

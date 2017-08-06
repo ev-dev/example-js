@@ -129,6 +129,11 @@ sidebar-toggle-title {
   color: rgb(52, 75, 81);
 }
 
+.sidebar-load-more {
+  font-size: 13px;
+  font-style: italic;
+}
+
 .side-num {
   font-weight: bold;
   color: rgb(22, 22, 22);
@@ -140,6 +145,7 @@ sidebar-toggle-title {
 
 .side-src {
   font-weight: bold;
+  font-size: 15px;
   color: rgb(2, 15, 21);
 }
 
@@ -207,22 +213,51 @@ sidebar-toggle-title {
 }
 
 .result-link-container {
-  border: 0.1px solid rgba(9, 58, 138, 0.1);
   border-radius: 2%;
+  margin-bottom: 10px;
   margin-left: 40px;
   padding-left: 25px;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 155px;
-  background-color: rgba(9, 78, 188, 0.5);
 }
 
 .result-switch-link {
-  text-align: center;
-  color: rgba(212, 235, 241, 0.9);
-  border: 1px solid rgba(9, 18, 98, 0.9);
-  border-radius: 2%;
   padding: 5px;
-  margin-top: 20px;
-  margin-bottom: 4s 5px;
+  margin-top: 50px;
+  margin-bottom: 55px;
+  color: rgba(212, 235, 241, 0.9);
+}
+
+single-link-container {
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 2%;
+  margin-left: 20px;
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+.mdn-results {
+  background-color: rgba(9, 78, 188, 0.5);
+  border: 1px solid rgba(9, 58, 138, 1);
+}
+
+.sof-results {
+  background-color: rgba(215, 3, 46, 0.5);
+  border: 1px solid rgba(185, 3, 26, 0.1);
+}
+
+.w3c-results {
+  background-color: rgba(40, 159, 128, 0.5);
+  border: 1px solid rgba(4, 109, 78, 0.1);
+}
+
+.result-num {
+  color: black;
+  font-weight: bold;
+  font-size: 17px;
+  margin-right: -15px;
+  margin-left: 5px;
+  padding-left: 10px;
 }
