@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import MainSearch from './MainSearch'
+import Search from './Search'
 
 const Home = props => (
   <div id="app" className="container center">
@@ -15,7 +15,7 @@ const Home = props => (
       <div className="column is-one-third"></div>
       
       <div className="column is-one-third">
-        <MainSearch {...props} />
+        <Search {...props} />
       </div>
       
       <div className="column is-one-third"></div>

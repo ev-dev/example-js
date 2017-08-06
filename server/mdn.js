@@ -15,16 +15,13 @@ router.get('/:query', (req, res, next) => {
     .then(res => res.data)
     .then(body => cheerio.load(body))
     .then(function($) {
-      console.log('Parsing response...\n\n')
+      console.log('\nParsing response...\n')
 
       let mdn_results = $('#Examples').siblings('pre')
         .map(function(i, el) {
           return $(this).text()
-        })
-        .get()
-                
-      console.log('\nexample snippets are: \n', mdn_results)
-
+        }).get()
+        
       res.json({ mdn_results })
     })
     .catch(next);

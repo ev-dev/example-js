@@ -5,13 +5,11 @@ import { connect } from 'react-redux'
 import AceTextEditor from './Editor/AceTextEditor'
 import CodemirrorEditor from './Editor/CodemirrorEditor'
 
-import MainSearch from './MainSearch'
+import Search from './Search'
 import SourceBar from './SourceBar'
 import InfoBar from './InfoBar'
 import Voting from './Voting'
 import Tags from './Tags'
-
-import Sidebar from './Sidebar'
 
 class ResultPage extends Component {
   constructor(props) {
@@ -32,7 +30,7 @@ class ResultPage extends Component {
     console.log('resultpage props -- look for match params\n', this.props)
 
     const { query, src, id } = this.props.match.params
-    const { resultsMDN } = this.props
+    const { mdn } = this.props
 
     return (
       <div className="white-text">
@@ -43,19 +41,22 @@ class ResultPage extends Component {
 
           <div className="column is-two-quarters center result-header">
             <div className="result-search">
-              <MainSearch />
+              <Search />
             </div>
 
-            <h1 className="result-title">
-              Results for "<em>{query}</em>"
-            </h1>
+            {mdn.isLoading
+              ? ( <div>
+                    <h1 className="result-title"><em>Loading Results...</em></h1>
+                    <div className="button is-large is-dark is-loading spinner"></div>
+                  </div> )
 
-
-            <AceTextEditor query={query} src={src} id={id} />
-
-            <Voting />
-            
-            <Tags />
+              : ( <div>
+                    <h1 className="result-title">Results for "<em>{query}</em>"</h1>
+                    <AceTextEditor query={query} src={src} id={id} />
+                    <Voting />  
+                    <Tags />
+                  </div> )
+            }
           </div>
 
           <div className="column is-one-quarter">
@@ -68,7 +69,7 @@ class ResultPage extends Component {
 }
 
 const mapState = (state, componentProps) => ({
-  resultsMDN: state.mdn.results
+  mdn: state.mdn
 })
 
 export default connect(mapState)(ResultPage)

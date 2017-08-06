@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 
 import { fetchResultsMDN } from '../reducers/mdn'
 
@@ -7,7 +8,8 @@ class MainSearch extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      queryInputText: ''
+      queryInputText: '',
+      isHomepage: true
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -20,16 +22,20 @@ class MainSearch extends Component {
   }
 
   handleSubmit() {
-    const query = this.state.queryInputText
-    console.log('query to submit: ', query)
-    
+    const query = this.state.queryInputText    
     this.props.fetchResultsMDN(query)  // THUNK
 
-    this.props.history.push(`/results/${query}/mdn/1`)
+    const uri = this.props.location.pathname
+    this.setState({ isHomepage: uri === '/' })
+
+    this.props.history.push(
+      this.state.isHomepage
+        ? `/results/${query}/mdn/1`
+        : `/results/${query}/${src}/${id}`
+    )
   }
 
   render() {
-
     return (
       <div className="field has-addons">
         <div className="control">
@@ -59,4 +65,4 @@ const mapState = (state, componentProps) => ({
 
 const mapDispatch = { fetchResultsMDN }
 
-export default connect(mapState, mapDispatch)(MainSearch)
+export default withRouter(connect(mapState, mapDispatch)(MainSearch))
