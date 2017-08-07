@@ -4,6 +4,14 @@ import { connect } from 'react-redux'
 class REPLbox extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      executed: ''
+    }
+    this.executeSnippet = this.executeSnippet.bind(this)
+  }
+
+  executeSnippet(snippet) {
+    this.setState({ executed: `Oh no! It didn't run!` })
   }
 
   render() {
@@ -25,28 +33,32 @@ class REPLbox extends Component {
     const currentSnippet = setCurrentSnippet(src, id)
     console.log('type is: ')
     console.log(currentSnippet)
-    console.log('   ')
-    console.log('   ')
+
+    let resultStr = ''
+    const convertEvalToStr = input => {
+
+    }
 
     let expression = new String(currentSnippet)
+    // .replace(/console\.log/g, )
     // let evaluation = JSON.parse(eval(expression))
     // console.log('evaluation is type: ', typeof evaluation)
     // console.log(evaluation)
 
-
-
     return (
       <div>
         <div className="run-button">
-          <button className="button is-warning">
-            Run This Snippet
+          <button 
+            className="button is-warning"
+            onClick={() => this.executeSnippet()}>
+              Run This Snippet
           </button>
         </div>
 
         <div className="repl-container">
           <div className="repl-box">
             <span className="repl-text">
-              -> {eval(expression)}
+              -> {this.state.executed}
             </span>
           </div>
         </div>
