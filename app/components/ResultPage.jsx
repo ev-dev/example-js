@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import AceTextEditor from './Editor/AceTextEditor'
@@ -78,5 +78,5 @@ const mapState = (state, componentProps) => ({
   mdn: state.mdn
 })
 
-export default connect(mapState)(ResultPage)
+export default withRouter(connect(mapState)(ResultPage))
 
