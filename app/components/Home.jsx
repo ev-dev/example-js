@@ -12,7 +12,7 @@ class Home extends Component {
   }
 
   searchWithPastQuery(query) {
-    this.props.fetchResultsMDN(query)
+    fetchResultsMDN(query)
     this.history.push(`/results/${query}/mdn/1`)
   }
 
@@ -38,10 +38,9 @@ class Home extends Component {
                 {pastQueries && pastQueries.length > 0
                   ? pastQueries.map((query, i) => (
                       <li key={i} className="past-query">
-                        <a
-                          onClick={()=> this.props.searchWithPastQuery(query)}>
+                        <Link to={`/results/${query}/mdn/1`}>
                           {query}
-                        </a>
+                        </Link>
                       </li>
                   ))
                   : (<h6><em>No History Yet...</em></h6>)
@@ -62,6 +61,6 @@ const mapState = (state, componentProps) => ({
   pastQueries: state.mdn.queries
 })
 
-const mapDispatch = { fetchResultsMDN }
+// const mapDispatch = { fetchResultsMDN }
 
 export default withRouter(connect(mapState)(Home))
