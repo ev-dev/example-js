@@ -31,6 +31,7 @@ const getResults = results => ({
 export const fetchResultsMDN = query =>
   dispatch => {
     dispatch({ type: MDN_LOADING })
+    dispatch(newQuery(query))
     axios.get(`/api/MDN/${query}`)
       .then(res => res.data)
       .then(snippets => snippets.mdn_results)

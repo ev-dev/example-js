@@ -4,7 +4,6 @@ const cheerio = require('cheerio')
 
 const api = require('./api')
 
-module.exports = router
 
 router.get('/:query', (req, res, next) => {
   const query = req.params.query
@@ -28,3 +27,5 @@ router.get('/:query', (req, res, next) => {
 
   // res.send(`/api/MDN/${req.params.query}`)
 })
+
+module.exports = router

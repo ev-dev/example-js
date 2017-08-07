@@ -92,11 +92,14 @@ class SourceBar extends Component {
               </div>
             }
           </div>
-
+          
+          {/*
           <button
             className="button is-warning sidebar-load-more">
             <span className="side-load-more-text">Load More Results</span>
           </button>
+          */}
+        
         </div>
       </div>
     )
