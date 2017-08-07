@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import AceTextEditor from './Editor/AceTextEditor'
-import CodemirrorEditor from './Editor/CodemirrorEditor'
+import REPLbox from './Editor/REPLbox'
 
 import Search from './Search'
 import SourceBar from './SourceBar'
@@ -37,6 +37,8 @@ class ResultPage extends Component {
         <div className="columns">
           <div className="column is-one-quarter sidebar-containter">
             <SourceBar query={query} />
+            <Voting />
+            <Tags />
           </div>
 
           <div className="column center main-container">
@@ -54,14 +56,7 @@ class ResultPage extends Component {
                     <h1 className="result-title">Results for "<em>{query}</em>"</h1>
                     <AceTextEditor query={query} src={src} id={id} />
                     
-                    <div className="columns voting-tags-container">
-                      <div className="column is-one-half">
-                        <Voting />
-                      </div>
-                      <div className="column is-one-half">
-                        <Tags />
-                      </div>
-                    </div>
+                    <REPLbox query={query} src={src} id={id} />
                   </div> )
             }
           </div>

@@ -1,20 +1,19 @@
 /* --------- ACTIONS TYPES & CREATORS --------- */
 
 const NEW_QUERY = 'NEW_QUERY'
-const newQuery = query => ({
+export const newQuery = query => ({
   type: NEW_QUERY,
   query
 })
 
 const GET_LAST_FIVE_QUERIES = 'GET_LAST_FIVE_QUERIES'
-const getLastFiveQueries = queries => ({
-  type: GET_LAST_FIVE_QUERIES,
-  queries
+export const getLastFiveQueries = () => ({
+  type: GET_LAST_FIVE_QUERIES
 })
 
 
 /* --------- REDUCER --------- */
-const initialState = { queries: [] }
+const initialState = { queries: [], lastFive: [] }
 
 const reducer = (state = initialState, action) => {
   const newState = Object.assign({}, state)
@@ -23,6 +22,8 @@ const reducer = (state = initialState, action) => {
     case NEW_QUERY:
       newState.queries = [...newState.queries, action.query]
       break
+    case GET_LAST_FIVE_QUERIES:
+      newState.lastFive = state.queries.slice(0, 5)
     default:
       return state
   }

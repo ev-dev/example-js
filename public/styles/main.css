@@ -104,7 +104,6 @@ body {
   width: 100%;
 }
 
-
 .result-title {
   margin-bottom: 10px;
 }
@@ -187,17 +186,18 @@ sidebar-toggle-title {
 }
 
 .tags-title {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: -15px
 }
 
 .all-tags {
   margin-top: 8px;
-  margin-left: 55px;
+  margin-left: 35px;
 }
 
 .vote-title {
-  margin-top: 15px;
-  margin-right: 20px;
+  margin-top: 25px;
+  margin-left: 40px;
 }
 
 .vote-btn {
@@ -207,7 +207,7 @@ sidebar-toggle-title {
 }
 
 .vote-buttons {
-  margin-left: -30px;
+  margin-left: 60px;
 }
 
 .link-to-source {
@@ -282,4 +282,28 @@ single-link-container {
 
 .voting-tags-container {
   width: 700px;
+}
+
+.repl-container {}
+
+.repl-box {
+  margin-left: 10%;
+  padding: 30px;
+  width: 80%;
+  height: 100px;
+  background-color: black;
+}
+
+.repl-text {
+  color: white;
+}
+
+.run-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.history-title {
+  color: rgba(212, 235, 241, 0.9);
+  margin-top: 40px;
 }

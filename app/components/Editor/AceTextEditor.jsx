@@ -35,7 +35,7 @@ class AceTextEditor extends Component {
         className="ace-text-area"
         value={currentSnippet}
         fontSize={15}
-        width={700}
+        width={'700px'}
         mode="javascript"
         theme="twilight"
         onChange={this.handleChange}

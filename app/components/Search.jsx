@@ -11,7 +11,6 @@ class MainSearch extends Component {
       queryInputText: '',
       isHomepage: true
     }
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -60,7 +59,8 @@ class MainSearch extends Component {
 }
 
 const mapState = (state, componentProps) => ({
-  resultsMDN: state.mdn.results
+  resultsMDN: state.mdn.results,
+  queriesMDN: state.mdn.queries
 })
 
 const mapDispatch = { fetchResultsMDN }
