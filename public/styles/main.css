@@ -307,3 +307,14 @@ single-link-container {
   color: rgba(212, 235, 241, 0.9);
   margin-top: 40px;
 }
+
+.disclaimer {
+  font-size: 12px;
+}
+
+.disclaimer-title {
+  font-size: 13px;
+  margin-top: 20px;
+  text-align: center;
+  font-style: italic;
+}
