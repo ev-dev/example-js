@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import AceTextEditor from './Editor/AceTextEditor'
@@ -30,7 +30,7 @@ class ResultPage extends Component {
     console.log('resultpage props -- look for match params\n', this.props)
 
     const { query, src, id } = this.props.match.params
-    const { mdn } = this.props
+    const { isLoading } = this.props
 
     return (
       <div className="white-text">
@@ -46,7 +46,7 @@ class ResultPage extends Component {
               <Search />
             </div>
 
-            {mdn.isLoading
+            {isLoading
               ? ( <div>
                     <h1 className="result-title"><em>Loading Results...</em></h1>
                     <div className="button is-large is-dark is-loading spinner"></div>
@@ -57,11 +57,21 @@ class ResultPage extends Component {
                     <AceTextEditor query={query} src={src} id={id} />
                     
                     <REPLbox query={query} src={src} id={id} />
+
+                    <h5 className="disclaimer-title">
+                      Disclaimer
+                    </h5>
+                    <h6 className="disclaimer">
+                      This project is still in its early phases so please note that not every example is garunteed.
+                    </h6>
                   </div> )
             }
           </div>
 
-          <div className="column righthand-spacer"></div>
+          <div className="column righthand-spacer">
+            <img className="github-icon"
+              src="/images/github_icon.png" />
+          </div>
           {/*
           <div className="column is-one-quarter">
             <InfoBar query={query} src={src} id={id} />
@@ -75,8 +85,7 @@ class ResultPage extends Component {
 }
 
 const mapState = (state, componentProps) => ({
-  mdn: state.mdn
+  isLoading: state.mdn.isLoading
 })
 
-export default connect(mapState)(ResultPage)
-
+export default withRouter(connect(mapState)(ResultPage))

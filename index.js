@@ -17,6 +17,9 @@ module.exports = app
   .use(express.static(
     resolve(__dirname, 'public')))
   
+  .use('/images', express.static(
+    resolve(__dirname, 'public', 'images')))
+
   .use('/api', require('./server/api'))
 
   .use('/bulma', express.static(
@@ -24,12 +27,6 @@ module.exports = app
   
   .use('/font-awesome', express.static(
     resolve(__dirname, 'node_modules', 'font-awesome', 'css')))
-  
-  .use('/code-highlight', express.static(
-    resolve(__dirname, 'node_modules', 'highlight.js', 'styles')))
-  
-  .use('/codemirror', express.static(
-    resolve(__dirname, 'node_modules', 'codemirror', 'lib')))
 
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, 'public', 'index.html')))
 
