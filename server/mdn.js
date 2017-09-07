@@ -8,6 +8,14 @@ router.get('/:query', (req, res, next) => {
   const query = req.params.query
 
   axios.get(`http://mdn.io/${query}`)
+    // ACTUAL FILE PATH!!
+    // .then(res => res.request.path)
+    // .then(path => {
+    //   console.log('\n\n\n---------------- Redirect Path -----------------')
+    //   console.log(path)
+    // })
+
+    // MDN RESPONSE
     .then(res => res.data)
     .then(body => cheerio.load(body))
     .then(function($) {
