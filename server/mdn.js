@@ -4,11 +4,8 @@ const cheerio = require('cheerio')
 
 const api = require('./api')
 
-
 router.get('/:query', (req, res, next) => {
   const query = req.params.query
-
-  console.log(`hit /api/MDN/:query as /api/MDN/${query}`)
 
   axios.get(`http://mdn.io/${query}`)
     .then(res => res.data)
@@ -23,9 +20,10 @@ router.get('/:query', (req, res, next) => {
         
       res.json({ mdn_results })
     })
-    .catch(next);
-
-  // res.send(`/api/MDN/${req.params.query}`)
+    .catch(err => {
+      console.log('Caught Error In MDN Axios Request...')
+      console.error(err)
+    });
 })
 
 module.exports = router
