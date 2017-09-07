@@ -21,7 +21,7 @@ router.get('/:query', (req, res, next) => {
       res.json({ mdn_results })
     })
     .catch(err => {
-      console.log('Caught Error In MDN Axios Request...')
+      console.log('\n\nCaught Error in MDN Axios Request...\n\n')
       console.error(err)
     });
 })
