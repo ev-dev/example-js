@@ -32,7 +32,7 @@ module.exports = app
 
 if (module === require.main) {
   const server = app.listen(
-    process.env.PORT || 3000,
+    process.env.PORT || 8001,
     () => {
       console.log('--- Started HTTP Server for ExampleJS ---')
       console.log(`Listening on ${JSON.stringify(server.address())}`)
