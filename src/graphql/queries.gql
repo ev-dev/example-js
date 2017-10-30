@@ -1,0 +1,18 @@
+query fetchAllTodos {
+  todos {
+    id
+    title
+    content
+    user {
+      name
+    }
+  }
+}
+
+query getTodo {
+  todo(query: "hello") {
+    title
+    content
+
+  }
+}
