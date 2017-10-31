@@ -4,31 +4,42 @@ import resolvers from './resolvers'
 
 const typeDefs = gql`
   type User {
-    id: Int
-    name: String
-    posts: [Post]
+    id: ID!
+    username: String!
+    fullname: String!
+    email: String!
+    password: String
+    googleId: String
+    githubId: String
+    profileImgUrl: String
+    organization: String
+    isPublic: Boolean
+    examples: [Example!]!
+    comments: [Comment!]!
   }
 
-  type Post {
-    id: Int
-    description: String
-    imageUrl: String
-    votes(count: Int = 0): Int
-    author: User
+  type Example {
+    id: ID!
+    snippet: String!
+    stars: Int
+    author: User!
   }
 
-  type Search {
-    posts: [Post]
-    users: [User]
+  type Comment {
+    id: ID!
+    content: String!
+    author: User!
+    parent: Comment
+    children: [Comment]
   }
 
   type Query {
     allUsers: [User]
-    allPosts: [Post]
+    allExamples: [Examples]
     getUserById: User
     getPostById: Post
-    getUserByName(name: String): [User]
-    getPostByTitleOrContent(query: String): [Post]
+    getUserByUsername(username: String!): [User]
+    getExamplesBySnippet(query: String!): []
     searchPostsUsers(query: String): Search
   }
 

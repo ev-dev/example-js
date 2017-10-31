@@ -12,4 +12,7 @@ Comment.belongsTo(User)
 Example.hasMany(Comment)
 Comment.belongsTo(Example)
 
+Comment.hasMany(Comment)
+Comment.belongsTo(Comment)
+
 export { db, User, Example, Comment }

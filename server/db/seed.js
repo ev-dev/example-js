@@ -3,34 +3,7 @@ import faker from 'faker'
 import { blue, green, red } from 'chalk'
 import { db, User, Example, Comment } from './models'
 
-const seedUser = () => {
-  const userFirst = faker.name.firstName()
-  , userLast = faker.name.lastName()
-  
-  return User.create({
-    username: faker.internet.userName(userFirst, userLast),
-    email: faker.internet.email(userFirst, userLast),
-    password: faker.internet.password(),
-    fullname: `${userFirst} ${userLast}`,
-    profileImgUrl: faker.image.avatar(),
-    organization: faker.company.companyName()
-  })
-}
-
-const seedExample = userId => Example.create({
-  snippet: faker.lorem.paragraph(),
-  stars: faker.random.number(150),
-  userId
-})
-
-const seedComment = (exampleId, userId) => Comment.create({
-  content: faker.lorem.text(),
-  exampleId,
-  userId
-})
-
-
-const seedDB = (numUsers=20, numExamplesPerUser=15, numCommentsPerExample=7) => {
+const seedDB = (numUsers=20, numExamplesPerUser=15, numCommentsPerExample=10) => {
   console.log(blue('\n  - Seeding Database...'))
   faker.seed(123)
   
@@ -55,11 +28,12 @@ const seedDB = (numUsers=20, numExamplesPerUser=15, numCommentsPerExample=7) => 
                 stars: faker.random.number(150)
               })
                 .then(createdExample =>
-                  _.times(numCommentsPerExample, () => {
+                  _.times(numCommentsPerExample, i => {
                     return createdExample.createComment({
                       content: faker.lorem.text(),
                       userId: createdUser.id
                     })
+                      .then(createdComment)
                   })
                 )
             })

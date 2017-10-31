@@ -8,6 +8,10 @@ const User = db.define('user', {
     allowNull: false,
     unique: true
   },
+  fullname: {
+    type: STRING,
+    allowNull: false
+  },
   email: {
     type: STRING,
     allowNull: false,
@@ -20,10 +24,7 @@ const User = db.define('user', {
   salt: STRING,
   googleId: STRING,
   githubId: STRING,
-  fullname: {
-    type: STRING,
-    allowNull: false
-  },
+  
   profileImgUrl: STRING,
   organization: STRING,
   isPublic: {
