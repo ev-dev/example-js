@@ -39,4 +39,5 @@ const seed = () => {
     })
 }
 
-seed()
+export default seed
+// seed()
