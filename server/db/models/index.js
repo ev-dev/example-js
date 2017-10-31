@@ -1,8 +1,15 @@
 import db from '../db'
 import User from './User'
-import Post from './Post'
+import Example from './Example'
+import Comment from './Comment'
 
-User.hasMany(Post)
-Post.belongsTo(User)
+User.hasMany(Example)
+Example.belongsTo(User)
 
-export { User, Post, db }
+User.hasMany(Comment)
+Comment.belongsTo(User)
+
+Example.hasMany(Comment)
+Comment.belongsTo(Example)
+
+export { db, User, Example, Comment }
