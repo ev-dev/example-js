@@ -1,6 +1,6 @@
 import { green, yellow, red, blue, cyan } from 'chalk'
 import { db } from './db/models'
-import { seedDB } from './db/seed'
+import seedDB from './db/seed'
 
 export const isProd = process.env.NODE_ENV === 'production'
 

@@ -3,7 +3,6 @@ import { PubSub, withFilter } from 'graphql-subscriptions'
 import { User, Post } from '../db/models'
 
 const pubsub = new PubSub()
-e('../db/models')
 
 export default {
   Query: {
