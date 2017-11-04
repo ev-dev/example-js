@@ -1,21 +1,25 @@
 import _ from 'lodash'
 import faker from 'faker'
 import chalk from 'chalk'
-import { db, User, 
-  // Example, Comment, Source 
-} from './models'
+import { db, User, Example, Comment, Source } from './models'
 
-const seedDB = (numUsers=20, numExamplesPerUser=15, numCommentsPerExample=5) => {
+const seedConfig = {
+  numUsers: 30,
+  examplesPerUser: 20,
+  totalNumComments: 3000
+}
+
+const seedDB = async config => {
   console.log(chalk.blue('\n  - Seeding Database...'))
   faker.seed(123)
-  
-  return db.sync({ force: true })
-    .then(() => {
-      return _.times(numUsers, () => {
-        const userFirst = faker.name.firstName()
-        const userLast = faker.name.lastName()
+  try {
+    const dbSync = await db.sync({ force: true })
 
-        return User.create({
+    const seedUsers = await _.times(config.numUsers, async () => {
+      const userFirst = faker.name.firstName()
+      const userLast = faker.name.lastName()
+      try {
+        const newUser = await User.create({
           username: faker.internet.userName(userFirst, userLast),
           fullname: `${userFirst} ${userLast}`,
           email: faker.internet.email(userFirst, userLast),
@@ -23,113 +27,64 @@ const seedDB = (numUsers=20, numExamplesPerUser=15, numCommentsPerExample=5) => 
           profileImgUrl: faker.image.avatar(),
           organization: faker.company.companyName()
         })
-          // .then(createdUser =>
-          //   _.times(numExamplesPerUser, () => {
-          //     return Example.create({
-          //       coderId: +createdUser.id,
-          //       title: faker.lorem.slug(5),
-          //       details: faker.lorem.sentences(2),
-          //       snippet: faker.lorem.paragraphs(2),
-          //       stars: +faker.random.number(100),
-          //     })
-                // .then(createdExample =>
-                //   _.times(numCommentsPerExample, i => {
-                //     return Comment.create({
-                //       authorId: +faker.random.number(numUsers - 1),
-                //       exampleId: +createdExample.id,
-                //       content: faker.lorem.text()
-                //     })
-                //       .then(createdComment =>
-                //         _.times(3, () => {
-                //           return Comment.create({
-                //             authorId: +faker.random.number(numUsers - 1),
-                //             exampleId: +createdExample.id,
-                //             parentId: +createdComment.id,
-                //             content: faker.lorem.text()
-                //           })
-                //         })
-                //       )
-                //   })
-                // )
-            // })
-          // )
-      })
+      } catch (err) {
+        console.log(err)
+      }
     })
-    .then(() => {
-      console.log(chalk.green.bold('\n  - Seeding Complete.\n'))
+
+    const totalNumExamples = config.numUsers * config.examplesPerUser
+    const seedExamples = await _.times(totalNumExamples, async () => {
+      try {
+        const newExample = await Example.create({
+          coderId: +faker.random.number({ min: 1, max: config.numUsers }),
+          title: faker.lorem.slug(5),
+          details: faker.lorem.sentences(2),
+          snippet: faker.lorem.paragraphs(2),
+          stars: +faker.random.number(100)
+        })
+      } catch (err) {
+        console.error(err)
+      }
     })
-    .catch(err => {
-      console.error(chalk.red('\n  - Error...Problem Seeding DB.\n\n'), err)
+
+    const seedSubComments = await _.times(config.totalNumComments, async commentId => {
+
+      let parentId = +faker.random.number({ min: 1, max: config.totalNumComments })
+      let parentIdBackup = +faker.random.number({ min: 1, max: config.totalNumComments })
+
+      if (parentId !== commentId) {
+        try {
+          const newComment = await Comment.create({
+            authorId: +faker.random.number({ min: 1, max: config.numUsers }),
+            exampleId: +faker.random.number({ min: 1, max: totalNumExamples }),
+            parentId: parentId,
+            content: faker.lorem.text()
+          })
+        } catch (err) {
+          console.error(err)
+        }
+      } else if (parentIdBackup !== commentId) {
+        console.log('\nWOAH ALMOST GOTTA DUPLICATE\n')
+        try {
+          const newComment = await Comment.create({
+            authorId: +faker.random.number({ min: 1, max: config.numUsers }),
+            exampleId: +faker.random.number({ min: 1, max: totalNumExamples }),
+            parentId: parentIdBackup,
+            content: faker.lorem.text()
+          })
+        } catch (err) {
+          console.error(err)
+        }
+      } else {
+        console.log('\nHOLY SHIT DOUBLE DUPLICATE\n')
+      }
     })
+
+    console.log(chalk.green('\n  - Seeding Complete.\n'))
+  }
+  catch (err) {
+    console.error('Final error catch', err)
+  }
 }
 
-// export default seedDB
-seedDB(20, 15, 7)
-
-
-
-
-
-
-
-
-
-
-// const seedUsers = async () => {
-//   const allNewUsers = []
-//   _.times(numUsers, () => {
-//     const userFirst = faker.name.firstName()
-//     const userLast = faker.name.lastName()
-
-//     const newUser = await User.create({
-//       username: faker.internet.userName(userFirst, userLast),
-//       email: faker.internet.email(userFirst, userLast),
-//       password: faker.internet.password(),
-//       fullname: `${userFirst} ${userLast}`,
-//       profileImgUrl: faker.image.avatar(),
-//       organization: faker.company.companyName()
-//     })
-//     allNewUsers.push(newUser)
-//   })
-//   return allNewUsers
-// }
-
-// const seedExamples = async allNewUsers => {
-//   allNewUsers.forEach(async user => {
-//     await _.times(exPerUser, () => {
-//       const newExample = await Example.create({
-//         snippet: faker.lorem.paragraph(),
-//         stars: faker.random.number(150),
-//         userId: +faker.random.number(numUsers - 1)
-//       })
-//     })
-//   })
-
-// const seedComments = await _.times(commPerEx, () => {
-//   const newComment = await Comment.create({
-//     content: faker.lorem.text(),
-//     exampleId: +newExample.id,
-//     userId: +faker.random.number(numUsers - 1)
-//   }) 
-// })
-
-// const seedSubComments = await _.times(faker.random.number(5), 
-//   () => {
-//     const newSubComment = await Comment.create({
-//       content: faker.lorem.text(),
-//       userId: +faker.random.number(numUsers - 1),
-//       exampleId: +newExample.id,
-//       commentId: +newComment.id
-//     })
-//   }
-// )
-
-
-
-//     .then(createdUser =>
-//       _.times(numExamplesPerUser, () => {
-//         return Example.create({
-//           snippet: faker.lorem.paragraph(),
-//           stars: faker.random.number(150),
-//           userId: +createdUser.id
-//         })
+seedDB(seedConfig)
