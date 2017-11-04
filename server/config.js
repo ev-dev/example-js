@@ -1,4 +1,4 @@
-import { green, yellow, red, blue, cyan } from 'chalk'
+import chalk from 'chalk'
 import { db } from './db/models'
 import seedDB from './db/seed'
 
@@ -33,8 +33,8 @@ export const initDB = () =>
 
 export const logListen = (config = defaults) => {
   const { pkgName, baseURL, port, database } = config
-    , NAME = red.bold(`[${pkgName.toUpperCase()}]`)
-    , FULL_URL = `${cyan.bold(baseURL)}${yellow(port)}`
+    , NAME = chalk.red.bold(`[${pkgName.toUpperCase()}]`)
+    , FULL_URL = `${chalk.cyan.bold(baseURL)}${chalk.yellow(port)}`
     , len = pkgName.length
     , bars = len <= 14 ? 44 : len + 26
     , space = len <= 14 ? 22 - len : 4
@@ -47,12 +47,12 @@ export const logListen = (config = defaults) => {
   else
     console.log(`
           ${'-'.repeat(bars)}
-          +   ${NAME}    ${blue.bold('Development')}${' '.repeat(space)}+
+          +   ${NAME}    ${chalk.blue.bold('Development')}${' '.repeat(space)}+
           +${' '.repeat(bars - 2)}+
-          +   => ${yellow.bold('Listening')} @ ${FULL_URL}${' '.repeat(btmSpace)}+
+          +   => ${chalk.yellow.bold('Listening')} @ ${FULL_URL}${' '.repeat(btmSpace)}+
           ${'-'.repeat(bars)}
 
-          Database:  ${green.bold(database.type)}
-          DB URL: ${cyan.bold(database.dbUrl)}
+          Database:  ${chalk.green.bold(database.type)}
+          DB URL: ${chalk.cyan.bold(database.dbUrl)}
     `)
 }

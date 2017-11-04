@@ -1,9 +1,10 @@
-const router = require('express').Router()
-  , path = require('path')
-  , { graphqlExpress, graphiqlExpress } = require('apollo-server-express')
-  , schema = require('../graphql/schema')
+import path from 'path'
+import { Router } from 'express'
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
 
-router
+import schema from './graphql'
+
+export default Router()
   /* --- Logging Middleware --- */
   .use(require('volleyball'))
 
@@ -14,9 +15,6 @@ router
     subscriptionsEndpoint: 'ws://localhost:3000/subscriptions'
   }))
 
-  /* --- API Server --- */
-  // .use('/api', require('./api'))
-  
   /* --- Serve React App --- */
   .get('/bundle.js', (req, res) => {
     res.sendFile(path.join(__dirname, '..', '..', 'public', 'bundle.js'))
@@ -40,5 +38,3 @@ router
     res.status(err.status || 500)
       .send(err.message || 'Internal Server Error.')
   })
-
-module.exports = router

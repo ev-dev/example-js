@@ -1,22 +1,31 @@
 import gql from 'graphql-tag'
+import UserTypes from './User'
+import CommentTypes from './Comment'
 
-export default gql`
-  
+const ExampleTypes = gql`
   type Example {
     id: ID!
+    coderId: ID!
+    title: String
+    details: String
     snippet: String!
     stars: Int
-    author: User!
   }
 
-  type Query {
+  extend type Query {
+    example(id: ID!): Example
+    examplesByCoder(coderId: ID!): [Example]
     allExamples: [Example]
-    getExample(
-      id: ID,
-      username: String,
-      userId: ID
+    searchExamples(
+      query: String!
+    ): [Example]
+  }
+
+  extend type Mutation {
+    createExample(
+      snippet: String!,
+      coderId: ID!
     ): Example
-    exampleByUser()
-    exampleBySnippet(query: String!): [Example]
   }
 `
+export default () => [ ExampleTypes, UserTypes, CommentTypes ]

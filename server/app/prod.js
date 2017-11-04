@@ -1,7 +1,7 @@
-const router = require('express').Router()
-  , path = require('path')
+import { Router } from 'express'
+import path from 'path'
 
-router
+export default Router()
   /* --- API Server --- */
   // .use('/api', require('./api'))
 
@@ -24,5 +24,3 @@ router
     res.status(err.status || 500)
       .send(err.message || 'Internal Server Error.')
   })
-
-module.exports = router

@@ -4,17 +4,19 @@ import { execute, subscribe } from 'graphql'
 import { createServer } from 'http'
 import { SubscriptionServer } from 'subscriptions-transport-ws'
 
-import schema from './graphql/schema'
+import schema from './app/graphql'
 import { initDB, logListen, defaults, isProd } from './config'
-
+import devRouter from './app/dev'
+import prodRouter from './app/prod'
 const app = express()
+
 app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
 
 isProd 
-  ? app.use(require('./app/prod'))
-  : app.use(require('./app/dev'))
+  ? app.use(prodRouter)
+  : app.use(devRouter)
 
 if (defaults.hasSockets) {
   const ws = createServer(app)
