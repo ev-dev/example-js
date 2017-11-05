@@ -13,7 +13,7 @@ export const seedDB = async config => {
   console.log(chalk.blue('\n  - Seeding Database...'))
   faker.seed(123)
   try {
-    // const dbSync = await db.sync({ force: true })
+    const dbSync = await db.sync({ force: true })
 
     const seedUsers = await _.times(config.numUsers, async () => {
       const userFirst = faker.name.firstName()
@@ -40,8 +40,7 @@ export const seedDB = async config => {
           title: faker.lorem.slug(5),
           details: faker.lorem.sentences(2),
           snippet: faker.lorem.paragraphs(2),
-          stars: +faker.random.number(100),
-          // tags: faker.lorem.word()
+          stars: +faker.random.number(100)
         })
       } catch (err) {
         console.error(err)
