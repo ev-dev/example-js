@@ -5,11 +5,12 @@ import CommentTypes from './Comment'
 const ExampleTypes = gql`
   type Example {
     id: ID!
-    coderId: ID!
+    coder: User
     title: String
     details: String
     snippet: String!
     stars: Int
+    comments: [Comment]
   }
 
   extend type Query {

@@ -9,7 +9,7 @@ const seedConfig = {
   totalNumComments: 3000
 }
 
-const seedDB = async config => {
+export const seedDB = async config => {
   console.log(chalk.blue('\n  - Seeding Database...'))
   faker.seed(123)
   try {

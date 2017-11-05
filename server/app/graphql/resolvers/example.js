@@ -1,20 +1,31 @@
 import { Op } from 'sequelize'
-import { Example } from '../../../db/models'
+import { Example, User, Comment } from '../../../db/models'
 
 const ExampleResolver = {
   Query: {
-    example: async exampleId =>
-      Example.findById(exampleId),
+    example: async (_, { id }) => 
+      Example.findById(+id, {
+        include: [{
+          model: User,
+          as: 'coder'
+        }, {
+          model: Comment
+        }]
+      }),
 
-    examplesByCoder: async coderId =>
-      Example.findAll({ where: {
-        coderId
-      }}),
+    examplesByCoder: async (_, { coderId }) =>
+      Example.scope('coder').findAll({
+        where: { coderId }
+      }),
 
     allExamples: async () =>
-      Example.findAll(),
+      Example.findAll()
+        .then(examples => {
+          console.log(`examples FINDALL : \n`, examples)
+          return examples
+        }),
 
-    searchExamples: async query =>
+    searchExamples: async (_, { query }) => 
       Example.findAll({
         where: {
           [Op.or]: {
@@ -33,7 +44,7 @@ const ExampleResolver = {
   },
 
   Mutation: {
-    createExample: async (snippet, coderId) =>
+    createExample: async (_, { snippet, coderId }) =>
       Example.create({ snippet, coderId })
   }
 }

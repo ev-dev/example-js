@@ -1,5 +1,7 @@
 import { STRING, BOOLEAN, VIRTUAL } from 'sequelize'
 // import crypto from 'crypto'
+import Comment from './Comment'
+import Example from './Example'
 import db from '../db'
 
 const User = db.define('user', {
@@ -30,6 +32,28 @@ const User = db.define('user', {
   isPublic: {
     type: BOOLEAN,
     defaultValue: true
+  }
+}, {
+  scopes: {
+    full: {
+      include: [{
+        model: Comment, 
+        as: 'author'
+      }, {
+        model: Example
+      }]
+    },
+    comments: {
+      include: [{
+        model: Comment,
+        as: 'author'
+      }]
+    },
+    examples: {
+      include: [{
+        model: Example
+      }]
+    }
   }
 })
 

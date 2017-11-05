@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 import { db } from './db/models'
-import seedDB from './db/seed'
+// import { seedDB } from './db/seed'
 
 export const isProd = process.env.NODE_ENV === 'production'
 
@@ -23,12 +23,12 @@ export const defaults = {
   hasSockets: true  // setup websockets for GraphQL Subscriptions
 }
 
-export const initDB = () =>
-  isProd 
-    ?
-      db.sync({ force: false })
-    : 
-      defaults.database.type !== 'Graphcool' && seedDB()
+export const initDB = () => db.sync({ force: false })
+  // isProd 
+  //   ?
+  //     db.sync({ force: false })
+  //   : 
+  //     defaults.database.type !== 'Graphcool' && seedDB()
 
 
 export const logListen = (config = defaults) => {

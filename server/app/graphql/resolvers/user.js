@@ -5,17 +5,17 @@ const UserResolver = {
     allUsers: async () =>
       User.findAll(),
 
-    user: async id =>
-      User.findById(id),
+    user: async (_, { id }) =>
+      User.scope('comments').findById(id),
 
-    userByUsername: async username =>
-      User.findOne({
+    userByUsername: async (_, { username }) =>
+      User.scope('full').findOne({
         where: { username }
       })
   },
 
   Mutation: {
-    createUser: async (username, fullname, email, password, profileImgUrl, organization) => 
+    createUser: async (_, { username, fullname, email, password, profileImgUrl, organization }) => 
       User.create({
         username,
         fullname,

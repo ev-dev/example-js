@@ -16,7 +16,14 @@ Comment.belongsTo(User, { as: 'author' })
 Example.hasMany(Comment)
 Comment.belongsTo(Example)
 
-Comment.belongsTo(Comment, {
+Comment.Children = Comment.hasMany(Comment, {
+  as: 'children',
+  foreignKey: 'childId',
+  constraints: false
+})
+
+Comment.Parent = Comment.belongsTo(Comment, {
+  as: 'parent',
   foreignKey: 'parentId', 
   constraints: false 
 })
