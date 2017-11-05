@@ -28,7 +28,6 @@
     "warnings": false
   },
   "dependencies": {
-    "@std/esm": "^0.13.0",
     "apollo-cache-inmemory": "^1.0.0",
     "apollo-client": "^2.0.1",
     "apollo-client-preset": "^1.0.1",
