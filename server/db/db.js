@@ -5,7 +5,7 @@ const db = new Sequelize(
   `postgres://localhost:5432/${DB_NAME}`, {
     native: true,
     logging: false,
-    // operatorsAliases: Sequelize.Op
+    operatorsAliases: Sequelize.Op
 })
 
 export default db

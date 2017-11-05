@@ -6,6 +6,7 @@ import { SubscriptionServer } from 'subscriptions-transport-ws'
 
 import schema from './app/graphql'
 import { initDB, logListen, defaults, isProd } from './config'
+// import { seedDB } from './db/seed'
 import devRouter from './app/dev'
 import prodRouter from './app/prod'
 const app = express()
@@ -39,6 +40,8 @@ if (defaults.hasSockets) {
 } 
 else {
   initDB()
+    // .then(() => seedDB())
+    // .then(() => console.log('\nSeeded!\n'))
     .then(() => app.listen(defaults.port, logListen))
     .catch(console.error)
 }

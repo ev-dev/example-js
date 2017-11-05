@@ -33,28 +33,28 @@ const User = db.define('user', {
     type: BOOLEAN,
     defaultValue: true
   }
-}, {
-  scopes: {
-    full: {
-      include: [{
-        model: Comment, 
-        as: 'author'
-      }, {
-        model: Example
-      }]
-    },
-    comments: {
-      include: [{
-        model: Comment,
-        as: 'author'
-      }]
-    },
-    examples: {
-      include: [{
-        model: Example
-      }]
-    }
-  }
+// }, {
+//   scopes: {
+//     full: {
+//       include: [{
+//         model: Comment, 
+//         as: 'author'
+//       }, {
+//         model: Example
+//       }]
+//     },
+//     comments: {
+//       include: [{
+//         model: Comment,
+//         as: 'author'
+//       }]
+//     },
+//     examples: {
+//       include: [{
+//         model: Example
+//       }]
+//     }
+//   }
 })
 
 // User.prototype.checkPswd = function(candidate) {

@@ -5,43 +5,68 @@ import Comment from './Comment'
 import Source from './Source'
 
 
-User.hasMany(Example, { 
-  foreignKey: 'coderId',
-  constraints: false
-})
-Example.belongsTo(User, { 
-  as: 'coder',
-  constraints: false
-})
+// User.hasMany(Example, { 
+//   foreignKey: 'coderId',
+//   constraints: false
+// })
+// Example.belongsTo(User, { 
+//   as: 'coder',
+//   constraints: false
+// })
 
 
-User.hasMany(Comment, {
-  foreignKey: 'authorId',
-  constraints: false
-})
-Comment.belongsTo(User, { 
-  as: 'author',
-  constraints: false
-})
+// User.hasMany(Comment, {
+//   foreignKey: 'authorId',
+//   constraints: false
+// })
+// Comment.belongsTo(User, { 
+//   as: 'author',
+//   constraints: false
+// })
 
 
-Comment.Child = Comment.hasMany(Comment, {
-  as: 'child',
-  foreignKey: 'childId',
-  constraints: false
-})
-Comment.Parent = Comment.belongsTo(Comment, {
-  as: 'parent',
-  foreignKey: 'parentId', 
-  constraints: false 
-})
+// Comment.Child = Comment.hasMany(Comment, {
+//   as: 'child',
+//   foreignKey: 'childId',
+//   constraints: false
+// })
+// Comment.Parent = Comment.belongsTo(Comment, {
+//   as: 'parent',
+//   foreignKey: 'parentId', 
+//   constraints: false 
+// })
 
+
+// Example.hasMany(Comment)
+// Comment.belongsTo(Example)
+
+// Source.hasMany(Example)
+// Example.belongsTo(Source)
+
+
+User.hasMany(Example, { foreignKey: 'coderId' })
+Example.belongsTo(User, { as: 'coder' })
+
+Source.hasMany(Example)
+Example.belongsTo(Source)
+
+User.hasMany(Comment, { foreignKey: 'authorId' })
+Comment.belongsTo(User, { as: 'author' })
 
 Example.hasMany(Comment)
 Comment.belongsTo(Example)
 
-Source.hasMany(Example)
-Example.belongsTo(Source)
+Comment.Children = Comment.hasMany(Comment, {
+  as: 'children',
+  foreignKey: 'childId',
+  constraints: false
+})
+
+Comment.Parent = Comment.belongsTo(Comment, {
+  as: 'parent',
+  foreignKey: 'parentId',
+  constraints: false
+})
 
 
 
