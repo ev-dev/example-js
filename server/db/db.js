@@ -1,11 +1,11 @@
 import Sequelize from 'sequelize'
+const DB_NAME = 'example-js' //process.env.npm_package_name
 
-const DB_NAME = process.env.npm_package_name
-
-export default new Sequelize(
+const db = new Sequelize(
   `postgres://localhost:5432/${DB_NAME}`, {
+    native: true,
     logging: false,
-    operatorsAliases: Sequelize.Op,
-    native: true
-  }
-)
+    // operatorsAliases: Sequelize.Op
+})
+
+export default db
