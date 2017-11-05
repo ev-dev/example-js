@@ -40,7 +40,8 @@ export const seedDB = async config => {
           title: faker.lorem.slug(5),
           details: faker.lorem.sentences(2),
           snippet: faker.lorem.paragraphs(2),
-          stars: +faker.random.number(100)
+          stars: +faker.random.number(100),
+          tags: faker.lorem.word()
         })
       } catch (err) {
         console.error(err)

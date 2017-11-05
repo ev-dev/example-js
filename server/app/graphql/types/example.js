@@ -5,21 +5,23 @@ import CommentTypes from './Comment'
 const ExampleTypes = gql`
   type Example {
     id: ID!
-    coder: User
     title: String
     details: String
+    tags: [String]
     snippet: String!
     stars: Int
+    coder: User
     comments: [Comment]
   }
 
   extend type Query {
     example(id: ID!): Example
+    
+    examples(limit: Int, offset: Int): [Example]
+
     examplesByCoder(coderId: ID!): [Example]
-    allExamples: [Example]
-    searchExamples(
-      query: String!
-    ): [Example]
+    
+    searchExamples(query: String!): [Example]
   }
 
   extend type Mutation {

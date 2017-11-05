@@ -11,21 +11,18 @@ const ExampleResolver = {
         }, {
           model: Comment
         }]
-      }),
+      })
+    
+  , examples: async (_, { limit, offset }) => 
+      Example.findAll({ limit, offset })
 
-    examplesByCoder: async (_, { coderId }) =>
+  , examplesByCoder: async (_, { coderId }) =>
       Example.scope('coder').findAll({
         where: { coderId }
-      }),
+      })
 
-    allExamples: async () =>
-      Example.findAll()
-        .then(examples => {
-          console.log(`examples FINDALL : \n`, examples)
-          return examples
-        }),
 
-    searchExamples: async (_, { query }) => 
+  , searchExamples: async (_, { query }) => 
       Example.findAll({
         where: {
           [Op.or]: {

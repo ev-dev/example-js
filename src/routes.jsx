@@ -1,15 +1,11 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import TodoList from './components/TodoList'
-import NewPost from './components/NewPost'
-import Search from './components/Search'
+import { Home } from './components'
 
 const Routes = () => (
   <Switch>
-    <Route exact path='/' component={TodoList} />
-    <Route exact path='/create' component={NewPost} />
-    <Route exact path='/search' component={Search} />
+    <Route exact path='/' component={Home} />
   </Switch>
 )
 
