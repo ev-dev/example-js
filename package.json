@@ -22,6 +22,11 @@
   ],
   "author": "ev-dv",
   "license": "ISC",
+  "@std/esm": {
+    "esm": "js",
+    "cjs": true,
+    "warnings": false
+  },
   "dependencies": {
     "@std/esm": "^0.12.5",
     "apollo-cache-inmemory": "^1.0.0",
