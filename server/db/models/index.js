@@ -25,12 +25,13 @@ Comment.belongsTo(User, {
 })
 
 
-Comment.Child = Comment.hasMany(Comment, {
+Comment.hasMany(Comment, {
   as: 'child',
   foreignKey: 'childId',
   constraints: false
 })
-Comment.Parent = Comment.belongsTo(Comment, {
+
+Comment.belongsTo(Comment, {
   as: 'parent',
   foreignKey: 'parentId', 
   constraints: false 

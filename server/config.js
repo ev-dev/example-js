@@ -23,7 +23,7 @@ export const defaults = {
   hasSockets: true  // setup websockets for GraphQL Subscriptions
 }
 
-export const initDB = () => db.sync({ force: false })
+export const initDB = () => db.sync({ force: true })
   // isProd 
   //   ?
   //     db.sync({ force: false })
