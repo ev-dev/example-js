@@ -11,7 +11,7 @@ const Example = db.define('example', {
     type: INTEGER,
     defaultValue: 0
   },
-  status: ENUM('Verified', 'Not Verified'),
+  // status: ENUM('Verified', 'Not Verified'),
   // tags: {
   //   type: ARRAY(STRING),
   //   defaultValue: ['JavaScript'],
@@ -35,9 +35,9 @@ const Example = db.define('example', {
 //   })
 // }
 
-Example.totalNumExamples = function() {
-  return this.count()
-}
+// Example.totalNumExamples = function() {
+//   return this.count()
+// }
 
 // Example.prototype.findSimilar = function() {
 //   return Example.findAll({
