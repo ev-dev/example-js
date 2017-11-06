@@ -1,8 +1,7 @@
 import gql from 'graphql-tag'
-import CommentTypes from './Comment'
-import ExampleTypes from './Example'
+import { _Example, _Comment } from '.'
 
-const UserTypes = gql`
+const _User = gql`
   type User {
     id: ID!
     username: String!
@@ -20,8 +19,8 @@ const UserTypes = gql`
 
   extend type Query {
     user(id: ID!): User
+    users: [User]
     userByUsername(username: String!): User
-    allUsers: [User]
   }
 
   extend type Mutation {
@@ -35,4 +34,4 @@ const UserTypes = gql`
     ): User
   }
 `
-export default () => [ UserTypes, ExampleTypes, CommentTypes ]
+export default () => [ _User, _Example, _Comment ]

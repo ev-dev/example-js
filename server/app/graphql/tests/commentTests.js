@@ -10,3 +10,21 @@ const recursiveChildren = (children) => {
 }
 
 recursiveChildren(testChildren)
+
+const fetchRoot = id => Comment.findById(+id)
+const fetchChildren = rootComment => rootComment.getChildren()
+const childrenIDs = children => children.map(child => child.dataValues.id)
+
+const recursiveChildren = async children => {
+  if (children.length === 1) {
+    return await children.getChildren()
+  }
+  children.forEach(async child => {
+    await recursiveChildren(child.slice(1))
+  })
+}
+
+  fetchRoot(rootCommentId)
+    .then(comment => fetchChildren(comment))
+    .then(children => childrenIDs(children))
+    .then(childrenIDs => fetchGrandChildren(childrenIDs))

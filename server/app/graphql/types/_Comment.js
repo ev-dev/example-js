@@ -1,8 +1,7 @@
 import gql from 'graphql-tag'
-import UserTypes from './User'
-import ExampleTypes from './Example'
+import { _User, _Example } from '.'
 
-const CommentTypes = gql`
+const _Comment = gql`
   type Comment {
     id: ID!
     author: User
@@ -56,4 +55,4 @@ const CommentTypes = gql`
     ): Comment
   }
 `
-export default () => [ CommentTypes, UserTypes, ExampleTypes ]
+export default () => [ _Comment, _Example, _User ]

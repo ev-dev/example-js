@@ -1,24 +1,22 @@
 import gql from 'graphql-tag'
 
-const RootTypes = gql`
+const _Root = gql`
   type Query {
     aNum: Int
   }
-
   type Mutation {
     noMutate(null: Int): Query
   }
-
   schema {
     query: Query
     mutation: Mutation
   }
 `
 
-export default RootTypes
-
-
-
+export default _Root
+export { default as _User } from './_User'
+export { default as _Example } from './_Example'
+export { default as _Comment } from './_Comment'
 
 
 
