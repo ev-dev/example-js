@@ -18,7 +18,7 @@ Query.commentTree = async (_, { rootCommentId, levels }) => {
     parent: rootComment,
     children: rootChildren
   }
-},
+}
 
 Query.commentWithChildren = async (_, { id }) =>
   await Promise.all([
@@ -28,19 +28,19 @@ Query.commentWithChildren = async (_, { id }) =>
         parentId: +id
       }
     })
-  ]),
+  ])
 
 Query.commentsByExample = async (_, { exampleId }) =>
   Comment.findAll({
     where: { exampleId: +exampleId },
     include: [{ model: User, as: 'author' }]
-  }),
+  })
     
 Query.commentsByAuthor = async (_, { authorId }) => 
   Comment.findAll({
     where: { authorId: +authorId },
     include: { model: Example }
-  }),
+  })
 
 Query.childComments = async (_, { parentId }) =>
   Comment.findAll({

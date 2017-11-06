@@ -8,12 +8,12 @@ const Comment = db.define('comment', {
   }
 })
 
-// Comment.prototype.getChildren = function() {
-//   console.log('COMMENT ID: ', this.id)
+Comment.prototype.getChildren = function() {
+  console.log('COMMENT ID: ', this.id)
 
-//   return Comment.findAll({
-//     where: { parentId: +this.id }
-//   })
-// } 
+  return Comment.findAll({
+    where: { parentId: +this.id }
+  })
+} 
 
 export default Comment
