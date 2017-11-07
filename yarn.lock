@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@std/esm@^0.12.5":
-  version "0.12.5"
-  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.12.5.tgz#b38a9bc70462df18a09b16f653141b9ab5557635"
+"@std/esm@^0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.13.0.tgz#b2ca2f7d96f50eec14bd14f0b8afc3138b2a40d4"
 
 "@types/async@2.0.45":
   version "2.0.45"
@@ -114,7 +114,7 @@ apollo-cache-control@^0.0.x:
   dependencies:
     graphql-extensions "^0.0.x"
 
-apollo-cache-inmemory@^1.0.0:
+apollo-cache-inmemory@^1.0.0, apollo-cache-inmemory@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/apollo-cache-inmemory/-/apollo-cache-inmemory-1.1.0.tgz#8b35f21da142419f0d68b6fff908f8ed4370ac8d"
   dependencies:
@@ -128,7 +128,7 @@ apollo-cache@^1.0.0:
   dependencies:
     apollo-utilities "^1.0.0"
 
-apollo-client-preset@^1.0.1:
+apollo-client-preset@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/apollo-client-preset/-/apollo-client-preset-1.0.2.tgz#ca14f718ac48eae6df6f54763ba0026d25d12761"
   dependencies:
@@ -138,7 +138,7 @@ apollo-client-preset@^1.0.1:
     apollo-link-http "1.1.0"
     graphql-tag "^2.4.2"
 
-apollo-client@^2.0.1, apollo-client@^2.0.2:
+apollo-client@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-2.0.2.tgz#f2b01898c404c867fc2bd8edf7c3ccded2b96fc6"
   dependencies:
