@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run build-dev & npm run serve-dev",
+    "dev": "npm run build-dev & nodemon ./server/index.js --exec babel-node",
     "build-dev": "cross-env NODE_ENV=development webpack -w",
     "serve-dev": "nodemon -r @std/esm ./server/index.js --watch server",
     "debug": "babel-node ./server/index.js",

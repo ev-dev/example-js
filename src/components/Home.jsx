@@ -16,8 +16,9 @@ const EXAMPLE_QUERY = gql`
     }
   }`
 
-
-export default graphql(EXAMPLE_QUERY)(({ data }) => {
+export default graphql(EXAMPLE_QUERY, {
+  options: { variables: { limit: 10 }}
+})(({ data }) => {
   if (data.loading) return <div>Loading...</div>
   return (
     <div>
@@ -37,8 +38,4 @@ export default graphql(EXAMPLE_QUERY)(({ data }) => {
       ))}
     </div>
   )
-}), {
-  options: {
-    variables: { limit: 10 }
-  }
 })
