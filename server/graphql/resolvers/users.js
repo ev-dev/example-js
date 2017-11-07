@@ -1,5 +1,5 @@
 import { Op } from 'sequelize'
-import { User } from '../../../db/models'
+import { User } from '../../db/models'
 const Query = {}, Mutation = {}, Resolver = { Query, Mutation }
 
 // ------ User Queries ------ //

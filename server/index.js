@@ -4,7 +4,7 @@ import { execute, subscribe } from 'graphql'
 import { createServer } from 'http'
 import { SubscriptionServer } from 'subscriptions-transport-ws'
 
-import schema from './app/graphql'
+import schema from './graphql'
 import { initDB, logListen, defaults, isProd } from './config'
 // import { seedDB } from './db/seed'
 import devRouter from './app/dev'

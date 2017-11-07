@@ -2,7 +2,7 @@ import path from 'path'
 import { Router } from 'express'
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
 
-import schema from './graphql'
+import schema from '../graphql'
 
 export default Router()
   /* --- Logging Middleware --- */

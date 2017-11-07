@@ -10,7 +10,7 @@ import './styles/index'
 import Routes from './routes'
 
 const client = new ApolloClient({
-  link: new HttpLink({}),
+  link: new HttpLink({ uri: '/graphql' }),
   cache: new InMemoryCache()
 })
 

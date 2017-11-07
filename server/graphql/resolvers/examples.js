@@ -1,5 +1,5 @@
 import { Op } from 'sequelize'
-import { Example, User, Comment } from '../../../db/models'
+import { Example, User, Comment } from '../../db/models'
 const Query = {}, Mutation = {}, Resolver = { Query, Mutation }
 
 // ------ Example Queries ------ //
