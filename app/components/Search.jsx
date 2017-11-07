@@ -27,7 +27,7 @@ class MainSearch extends Component {
     const uri = this.props.location.pathname
     this.setState({ isHomepage: uri === '/' })
 
-    this.props.history.pu]sh(
+    this.props.history.push(
       this.state.isHomepage
         ? `/results/${query}/mdn/1`
         : `/results/${query}/${src}/${id}`
