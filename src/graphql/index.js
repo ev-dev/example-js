@@ -2,12 +2,12 @@
 
 
 import {
-  fetchExamples,
-  searchExamples
+  _fetchExamples,
+  _searchExamples
 } from './examples'
 
 
 export { 
-  fetchExamples, 
-  searchExamples 
+  _fetchExamples, 
+  _searchExamples 
 }

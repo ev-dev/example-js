@@ -2,9 +2,9 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 
-export const fetchExamples = (limit=10) => graphql(gql`
-  query fetchExamples($limit: Int) {
-    examples(limit: $limit) {
+export const _fetchExamples = (limit=10) => graphql(gql`
+  query fetchExamples {
+    examples {
       id
       title
       details
@@ -14,14 +14,10 @@ export const fetchExamples = (limit=10) => graphql(gql`
       }
       snippet
     }
-  }`, {
-    options: {
-      variables: { limit }
-    }
-  })
+  }`)
 
 
-export const searchExamples = query => graphql(gql`
+export const _searchExamples = query => graphql(gql`
   query findExamples($query: String!) {
     searchExampes($query: String!) {
       title,
