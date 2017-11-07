@@ -38,6 +38,8 @@
     "axios": "^0.17.0",
     "babel-runtime": "^6.26.0",
     "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "eslint-plugin-graphql": "^1.4.0-1",
     "express": "^4.16.2",
     "faker": "^4.1.0",
     "graphql": "^0.11.7",

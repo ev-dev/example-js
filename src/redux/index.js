@@ -1,12 +1,18 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createLogger } from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
-import reducer from './reducer'
+import mdn from './mdn'
+
+const rootReducer = combineReducers({
+  mdn
+})
+
+export { _fetchResultsMDN } from './mdn'
 
 export default createStore(
-  reducer,
+  rootReducer,
   composeWithDevTools(
     applyMiddleware(
       thunkMiddleware,

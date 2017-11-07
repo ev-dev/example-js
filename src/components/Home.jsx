@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -14,6 +15,8 @@ const LAST_TEN_EXAMLES = gql` {
 const Home = ({ data: { loading, examples } }) => 
   loading ? <div>Loading...</div> : (
   <div>
+    <Link to='/mdn/apollo'>MDN FETCH EXAMPLE APOLLO</Link>
+    <Link to='/mdn/redux'>MDN FETCH EXAMPLE REDUX</Link>
     <h1>Last 10 Examples...</h1>
     <h3>Ordered from newest first.</h3>
 
