@@ -7,25 +7,27 @@ import { pkgName, isProd, baseURL, PORT } from './index'
 export const logger = Router().use(volleyball)
 
 export const logListen = () => {
-  const { yellow, cyan, red, blue } = chalk
-    , NAME = red.bold(`[${pkgName.toUpperCase()}]`)
-    , FULL_URL = `${cyan.bold(baseURL)}${yellow(PORT)}`
+  const { pkgName, baseURL, port, database } = config
+    , NAME = chalk.red.bold(`[${pkgName.toUpperCase()}]`)
+    , FULL_URL = `${chalk.cyan.bold(baseURL)}${chalk.yellow(port)}`
     , len = pkgName.length
     , bars = len <= 14 ? 44 : len + 26
     , space = len <= 14 ? 22 - len : 4
     , btmSpace = len <= 14 ? 3 : len - 15
 
-  if (isProd) {
+  if (isProd)
     console.log(`
-    - ${pkgName} > Production Server @ ${baseURL}${PORT} -
+      - ${pkgName} > Production Server @ ${baseURL}${port} -
     `)
-  } else {
+  else
     console.log(`
           ${'-'.repeat(bars)}
-          +   ${NAME}    ${blue.bold('Development')}${' '.repeat(space)}+
+          +   ${NAME}    ${chalk.blue.bold('Development')}${' '.repeat(space)}+
           +${' '.repeat(bars - 2)}+
-          +   => ${yellow.bold('Listening')} @ ${FULL_URL}${' '.repeat(btmSpace)}+
+          +   => ${chalk.yellow.bold('Listening')} @ ${FULL_URL}${' '.repeat(btmSpace)}+
           ${'-'.repeat(bars)}
+
+          Database:  ${chalk.green.bold(database.type)}
+          DB URL: ${chalk.cyan.bold(database.dbUrl)}
     `)
-  }
 }
