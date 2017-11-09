@@ -6,7 +6,7 @@ const pkgName = process.env.npm_package_name
   , PORT = isProd ? 80 : 3000
   , hasSockets = true  // setup websockets for GraphQL Subscriptions
   , dbConfig = {
-      forceSeed: false,
+      forceSeed: true,
       seedConfig: {
         numUsers: 30,
         examplesPerUser: 20,
