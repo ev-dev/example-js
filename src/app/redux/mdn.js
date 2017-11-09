@@ -35,12 +35,15 @@ export const _fetchResultsMDN = query =>
     dispatch({ type: MDN_LOADING })
     dispatch(newQuery(query))
     dispatch(getResults([ 'hello', 'world' ]))
-    // axios.get(`/api/MDN/${query}`)
-    //   .then(res => res.data)
-    //   .then(snippets => snippets.mdn_results)
-    //   .then(finalArr =>
-    //     dispatch(getResults(finalArr)))
-    //   .catch(err => console.error('FAIL!', err));
+    axios.get(`/api/MDN/${query}`)
+      .then(res => res.data)
+      .then(snippets => snippets.mdn_results)
+      .then(finalArr => {
+        console.log(`finalArr`)
+        
+        dispatch(getResults(finalArr))
+      })
+      .catch(err => console.error('FAIL!', err));
   }
 
 /* --------- REDUCER --------- */

@@ -1,9 +1,8 @@
 node_modules
 npm-debug.log
-.esm-cache
 
-public/bundle.js
-public/bundle.js.map
+dist/bundle*
 
 .DS_Store
 .vscode
+.esm-cache
