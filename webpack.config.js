@@ -4,16 +4,16 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
 const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
-  entry: path.join(__dirname, 'src', 'index'),
+  entry: path.join(__dirname, 'src', 'app', 'index'),
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public')
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [{
         test: /.jsx?$/,
         include: [
-          path.resolve(__dirname, 'src')
+          path.resolve(__dirname, 'src', 'app')
         ],
         exclude: [
           path.resolve(__dirname, 'node_modules')
@@ -26,7 +26,7 @@ module.exports = {
       {
         test: /\.(scss|sass|css)$/,
         include: [
-          path.resolve(__dirname, 'src'),
+          path.resolve(__dirname, 'src', 'app'),
           path.resolve(__dirname, 'node_modules', 'font-awesome')
         ],
         use: [{
@@ -41,7 +41,7 @@ module.exports = {
       {
         test: /\.(graphql|gql)$/,
         include: [
-          path.resolve(__dirname, 'src', 'graphql')
+          path.resolve(__dirname, 'src', 'app', 'graphql')
         ],
         exclude: /node_modules/,
         loader: 'graphql-tag/loader'
@@ -53,7 +53,7 @@ module.exports = {
   },
   devtool: isDev ? 'cheap-module-eval-source-map' : 'source-map',
   devServer: {
-    publicPath: path.join('/public/')
+    publicPath: path.join('/dist/')
   },
   plugins: isDev 
     ? [

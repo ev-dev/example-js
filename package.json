@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run build-dev & nodemon ./server/index.js --exec babel-node",
+    "dev": "npm run serve-dev & npm run build-dev",
     "build-dev": "cross-env NODE_ENV=development webpack -w",
-    "serve-dev": "nodemon -r @std/esm ./server/index.js --watch server",
-    "debug": "babel-node ./server/index.js",
+    "serve-dev": "nodemon -r @std/esm ./src/server/index.js --watch server",
+    "serve-debug": "babel-node ./src/server/index.js",
+    "debug": "npm run serve-debug & npm run build-dev",
     "test-build": "cross-env NODE_ENV=development webpack --bail --progress -d",
     "test": "nodemon tests/testServer.js --watch tests",
     "start": "npm run build && npm run serve",
     "build": "cross-env NODE_ENV=production webpack",
-    "serve": "cross-env NODE_ENV=production node server/index.js",
-    "seed": "node -r @std/esm server/db/seed.js"
+    "serve": "cross-env NODE_ENV=production node ./src/server/index.js",
+    "seed": "node -r @std/esm ./src/server/db/seed.js"
   },
   "keywords": [
     "devtool",
