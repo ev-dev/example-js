@@ -1,8 +1,8 @@
 node_modules
-npm-debug.log
 
 dist/bundle*
 
+npm-debug.log
+.esm-cache
 .DS_Store
 .vscode
-.esm-cache
