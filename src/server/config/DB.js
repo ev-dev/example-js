@@ -1,7 +1,7 @@
-import { forceSeed, seedDB } from './index'
+import { dbConfig, seedDB } from './index'
 import { _DB } from '../db'
 
-export default async (isSeedDB=forceSeed) => {
+export default async (isSeedDB=dbConfig.forceSeed) => {
   let syncedDB
   try {
     syncedDB = await _DB.sync({ force: !!isSeedDB })

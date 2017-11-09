@@ -1,10 +1,11 @@
 import _ from 'lodash'
 import faker from 'faker'
 import chalk from 'chalk'
-import { seedConfig } from './index'
+
+import { dbConfig } from './index'
 import { _User, _Example, _Comment, _Source } from '../db'
 
-const seedDB = async (config=seedConfig) => {
+const seedDB = async (config=dbConfig.seedConfig) => {
   console.log(chalk.blue('\n  - Seeding Database...'))
   faker.seed(123)
   try {
