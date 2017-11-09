@@ -5,6 +5,13 @@ const User = {}
   , Mutation = {}
   , Resolver = { Query, Mutation, User }
 
+// ------ User Type ------ //
+User.examples = async user => 
+  _Example.findAll({ where: { coderId: user.id } })
+
+User.comments = async user =>
+  _Comment.findAll({ where: { authorId: user.id } })
+
 // ------ User Queries ------ //
 Query.user = async (_, { id }) => 
   _User.findById(+id)
@@ -17,18 +24,9 @@ Query.userByUsername = async (_, { username }) =>
     where: { username }
   })
 
-// ------ User Type Resolvers ------ //
-User.examples = async user => 
-  _Example.findAll({ where: { coderId: user.id } })
-
-User.comments = async user =>
-  _Comment.findAll({ where: { authorId: id } })
-
-
-// // ------ Example Mutations ------ //
+// // ------ User Mutations ------ //
 Mutation.createUser = async (_, ...userFields) =>
   _User.create({ ...userFields })
-
 
 
 export default Resolver

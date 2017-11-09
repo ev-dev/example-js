@@ -5,6 +5,15 @@ const Comment = {}
   , Mutation = {}
   , Resolver = { Query, Mutation, Comment }
 
+  
+// ------ Comment Type ------ //
+Comment.children = async comment =>
+  _Comment.findAll({ where: { parentId: comment.id } })
+
+Comment.author = async comment =>
+  _User.findById(+comment.authorId)
+
+
 // ------ Comment Queries ------ //
 Query.comment = async (_, { id }) => _Comment.findById(+id)
     
@@ -50,14 +59,6 @@ Query.childComments = async (_, { parentId }) =>
     where: { parentId: +parentId },
     include: [{ model: _User, as: 'author' }]
   })
-
-  
-// ------ Comment Type Resolvers ------ //
-Comment.children = async comment =>
-  _Comment.findAll({ where: { parentId: comment.id } })
-
-Comment.author = async comment =>
-  _User.findById(+comment.authorId)
 
 // ------ Comment Mutations ------ //
 Mutation.createComment = async (_, ...commentFields) => 

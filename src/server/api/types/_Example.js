@@ -18,6 +18,8 @@ const _Example = gql`
     
     examples(limit: Int, offset: Int): [Example]
 
+    examplesByTags(tags: [String!]!): [Example]
+
     examplesByCoder(coderId: ID!): [Example]
     
     searchExamples(query: String!): [Example]
