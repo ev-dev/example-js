@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { _Example, _Comment } from '.'
+import { _Example, _Comment } from './index'
 
 const _User = gql`
   type User {

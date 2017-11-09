@@ -1,19 +1,34 @@
 import { Op } from 'sequelize'
-import { User } from '../../db/models'
-const Query = {}, Mutation = {}, Resolver = { Query, Mutation }
+import { _User, _Example, _Comment } from '../../db'
+const User = {}
+  , Query = {}
+  , Mutation = {}
+  , Resolver = { Query, Mutation, User }
 
 // ------ User Queries ------ //
-Query.user = async (_, { id }) => User.scope('comments').findById(id)
+Query.user = async (_, { id }) => 
+  _User.findById(+id)
 
-Query.users = async () => User.findAll()
+Query.users = async () => 
+  _User.findAll()
 
 Query.userByUsername = async (_, { username }) => 
-  User.scope('full').findOne({
+  _User.findOne({
     where: { username }
   })
 
-// ------ Example Mutations ------ //
-Mutation.createUser = async (_, ...userFields) => 
-  User.create({ ...userFields })
+// ------ User Type Resolvers ------ //
+User.examples = async user => 
+  _Example.findAll({ where: { coderId: user.id } })
+
+User.comments = async user =>
+  _Comment.findAll({ where: { authorId: id } })
+
+
+// // ------ Example Mutations ------ //
+Mutation.createUser = async (_, ...userFields) =>
+  _User.create({ ...userFields })
+
+
 
 export default Resolver

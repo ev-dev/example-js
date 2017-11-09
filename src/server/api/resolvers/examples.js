@@ -1,10 +1,10 @@
 import { Op } from 'sequelize'
-import { Example, User, Comment } from '../../db/models'
+import { _Example, _User, _Comment } from '../../db'
 const Query = {}, Mutation = {}, Resolver = { Query, Mutation }
 
 // ------ Example Queries ------ //
 Query.example = async (_, { id }) =>
-  Example.findById(+id, {
+  _Example.findById(+id, {
     include: [{
       model: User,
       as: 'coder'
@@ -15,20 +15,20 @@ Query.example = async (_, { id }) =>
 
 Query.examples = async (_, { limit, offset, include, tag }) => {
   if (include) 
-    return Example.scope(include).findAll({ limit, offset, tag })
+    return _Example.scope(include).findAll({ limit, offset, tag })
   else if (tag)
-    return Example.findAll({ limit, offset, where: { tag } })
+    return _Example.findAll({ limit, offset, where: { tag } })
   else
-    return Example.findAll({ limit, offset })
+    return _Example.findAll({ limit, offset })
 }
 
 Query.examplesByCoder = async (_, { coderId }) =>
-  Example.scope('coder').findAll({
+  _Example.scope('coder').findAll({
     where: { coderId }
   })
 
 Query.searchExamples = async (_, { query }) =>
-  Example.findAll({
+  _Example.findAll({
     where: {
       [Op.or]: {
         snippet: {
@@ -46,6 +46,6 @@ Query.searchExamples = async (_, { query }) =>
 
 // ------ Example Mutations ------ //
 Mutation.createExample = async (_, { snippet, coderId }) =>
-    Example.create({ snippet, coderId })
+    _Example.create({ snippet, coderId })
 
 export default Resolver

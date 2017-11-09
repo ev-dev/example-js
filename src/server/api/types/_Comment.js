@@ -7,6 +7,7 @@ const _Comment = gql`
     author: User
     example: Example
     parent: Comment
+    children: [Comment]
     content: String!
   }
 

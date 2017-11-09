@@ -15,7 +15,7 @@ const schema = makeExecutableSchema({
 export default Router()
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
-  .use('/mdn', ) // RESTFUL
+  // .use('/mdn', ) // RESTFUL
   .use('/graphql', graphqlExpress({ schema }))
   .use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
