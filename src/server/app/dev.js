@@ -2,11 +2,13 @@ import path from 'path'
 import { Router } from 'express'
 
 import { logger } from '../config/index'
+import mdnTestRouter from '../api/tests/mdnTestRouter'
 
 export default Router()
   /* --- Logging Middleware --- */
   .use(logger)
-
+  .use(mdnTestRouter)
+  
   /* --- Serve React App --- */
   // .get('/bundle.js', (req, res) => {
   //   res.sendFile(path.join(__dirname, '..', '..', '..', 'dist', 'bundle.js'))

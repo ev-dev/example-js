@@ -1,28 +1,28 @@
 import { Router } from 'express'
+import bodyParser from 'body-parser'
 import axios from 'axios'
 import cheerio from 'cheerio'
 
 export default Router()
-  .get('/mdn', (req, res, next) => {
+  .use(bodyParser.urlencoded({ extended: true }))
+  .use(bodyParser.json())
+  .get('/mdn/:query', (req, res, next) => {
     const query = req.params.query
-
     axios.get(`http://mdn.io/${query}`)
       .then(res => res.data)
       .then(body => cheerio.load(body))
-      .then(function ($) {
+      .then(function($) {
         console.log('\nParsing response...\n')
 
-        let mdn_results = $('#Examples')
-          .siblings('pre')
-          .map(function (i, el) {
+        let mdn_results = $('#Examples').siblings('pre')
+          .map(function(i, el) {
             return $(this).text()
-          })
-          .get()
-
+          }).get()
+          
         res.json({ mdn_results })
       })
       .catch(err => {
         console.log('\n\nCaught Error in MDN Axios Request...\n\n')
         console.error(err)
-      });
+      })
   })

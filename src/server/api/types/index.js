@@ -16,6 +16,7 @@ const _Root = gql`
 export default _Root
 export { default as _User } from './_User'
 export { default as _Example } from './_Example'
+export { default as _MDN_Example } from './_MDN_Example'
 export { default as _Comment } from './_Comment'
 
 
